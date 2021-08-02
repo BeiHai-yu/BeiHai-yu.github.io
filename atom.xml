@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Xiaoxin&#39;s blog</title>
+  <icon>https://www.gravatar.com/avatar/0ae4d92416e456b8be26ba9fec4676b0</icon>
+  <subtitle>纵使相逢应不识，尘满面，鬓如霜</subtitle>
+  <link href="http://xiaoxin.press/atom.xml" rel="self"/>
+  
+  <link href="http://xiaoxin.press/"/>
+  <updated>2020-07-31T04:23:21.000Z</updated>
+  <id>http://xiaoxin.press/</id>
+  
+  <author>
+    <name>Xiaoxin</name>
+    <email>xiaoxinvvzzz@sina.com</email>
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>java知识点</title>
+    <link href="http://xiaoxin.press/2021/08/01/test1/"/>
+    <id>http://xiaoxin.press/2021/08/01/test1/</id>
+    <published>2021-08-01T09:00:29.183Z</published>
+    <updated>2020-07-31T04:23:21.000Z</updated>
+    
+    
+    <summary type="html">对学习java知识点的总结</summary>
+    
+    
+    
+    
+    <category term="-Java -Android" scheme="http://xiaoxin.press/tags/Java-Android/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>test</title>
+    <link href="http://xiaoxin.press/2021/07/31/test/"/>
+    <id>http://xiaoxin.press/2021/07/31/test/</id>
+    <published>2021-07-31T10:01:39.000Z</published>
+    <updated>2021-07-31T10:01:39.594Z</updated>
+    
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://xiaoxin.press/2021/07/31/hello-world/"/>
+    <id>http://xiaoxin.press/2021/07/31/hello-world/</id>
+    <published>2021-07-31T08:40:01.280Z</published>
+    <updated>2021-08-01T10:24:11.186Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start">Quick Start</h2><h3 id="Create-a-new-post">Create a new post</h3><pre class="language-bash" data-language="bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span></code></pre><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server">Run server</h3><pre class="language-bash" data-language="bash"><code class="language-bash">$ hexo server</code></pre><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files">Generate static files</h3><pre class="language-bash" data-language="bash"><code class="language-bash">$ hexo generate</code></pre><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites">Deploy to remote sites</h3><pre class="language-bash" data-language="bash"><code class="language-bash">$ hexo deploy</code></pre><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>404</title>
+    <link href="http://xiaoxin.press/2019/08/05/404/"/>
+    <id>http://xiaoxin.press/2019/08/05/404/</id>
+    <published>2019-08-05T08:41:10.000Z</published>
+    <updated>2021-07-31T14:53:51.938Z</updated>
+    
+    
+    <summary type="html">Oops～，我崩溃了！找不到你想要的页面 :(</summary>
+    
+    
+    
+    
+  </entry>
+  
+</feed>
