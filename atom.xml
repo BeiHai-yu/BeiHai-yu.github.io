@@ -3,11 +3,11 @@
   <title>Xiaoxin&#39;s blog</title>
   <icon>https://www.gravatar.com/avatar/0ae4d92416e456b8be26ba9fec4676b0</icon>
   <subtitle>纵使相逢应不识，尘满面，鬓如霜</subtitle>
-  <link href="http://xiaoxin.press/atom.xml" rel="self"/>
+  <link href="http://beihai-yu.github.io/atom.xml" rel="self"/>
   
-  <link href="http://xiaoxin.press/"/>
-  <updated>2020-07-31T04:23:21.000Z</updated>
-  <id>http://xiaoxin.press/</id>
+  <link href="http://beihai-yu.github.io/"/>
+  <updated>2021-08-02T15:13:05.675Z</updated>
+  <id>http://beihai-yu.github.io/</id>
   
   <author>
     <name>Xiaoxin</name>
@@ -17,9 +17,31 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>test123</title>
+    <link href="http://beihai-yu.github.io/2021/08/02/test123-1/"/>
+    <id>http://beihai-yu.github.io/2021/08/02/test123-1/</id>
+    <published>2021-08-02T15:08:16.000Z</published>
+    <updated>2021-08-02T15:13:05.675Z</updated>
+    
+    <content type="html"><![CDATA[<p>123</p><p><img src="/images/pasted-1.png" alt="upload successful"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;123&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/pasted-1.png&quot; alt=&quot;upload successful&quot;&gt;&lt;/p&gt;
+</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
     <title>java知识点</title>
-    <link href="http://xiaoxin.press/2021/08/01/test1/"/>
-    <id>http://xiaoxin.press/2021/08/01/test1/</id>
+    <link href="http://beihai-yu.github.io/2021/08/01/test1/"/>
+    <id>http://beihai-yu.github.io/2021/08/01/test1/</id>
     <published>2021-08-01T09:00:29.183Z</published>
     <updated>2020-07-31T04:23:21.000Z</updated>
     
@@ -29,14 +51,14 @@
     
     
     
-    <category term="-Java -Android" scheme="http://xiaoxin.press/tags/Java-Android/"/>
+    <category term="-Java -Android" scheme="http://beihai-yu.github.io/tags/Java-Android/"/>
     
   </entry>
   
   <entry>
     <title>test</title>
-    <link href="http://xiaoxin.press/2021/07/31/test/"/>
-    <id>http://xiaoxin.press/2021/07/31/test/</id>
+    <link href="http://beihai-yu.github.io/2021/07/31/test/"/>
+    <id>http://beihai-yu.github.io/2021/07/31/test/</id>
     <published>2021-07-31T10:01:39.000Z</published>
     <updated>2021-07-31T10:01:39.594Z</updated>
     
@@ -48,8 +70,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="http://xiaoxin.press/2021/07/31/hello-world/"/>
-    <id>http://xiaoxin.press/2021/07/31/hello-world/</id>
+    <link href="http://beihai-yu.github.io/2021/07/31/hello-world/"/>
+    <id>http://beihai-yu.github.io/2021/07/31/hello-world/</id>
     <published>2021-07-31T08:40:01.280Z</published>
     <updated>2021-08-01T10:24:11.186Z</updated>
     
@@ -68,8 +90,8 @@
   
   <entry>
     <title>404</title>
-    <link href="http://xiaoxin.press/2019/08/05/404/"/>
-    <id>http://xiaoxin.press/2019/08/05/404/</id>
+    <link href="http://beihai-yu.github.io/2019/08/05/404/"/>
+    <id>http://beihai-yu.github.io/2019/08/05/404/</id>
     <published>2019-08-05T08:41:10.000Z</published>
     <updated>2021-07-31T14:53:51.938Z</updated>
     
