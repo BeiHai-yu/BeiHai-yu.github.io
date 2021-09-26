@@ -2,35 +2,140 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://beihai-yu.github.io/about/index.html</loc>
+    <loc>http://beihai-yu.github.io/2021/09/24/idea-sou-suo-bu-dao-cha-jian-de-jie-jue-ban-fa/</loc>
     
-    <lastmod>2021-08-03</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://beihai-yu.github.io/2021/08/02/test123-1/</loc>
-    
-    <lastmod>2021-08-02</lastmod>
+    <lastmod>2021-10-04</lastmod>
     
   </url>
   
   <url>
-    <loc>http://beihai-yu.github.io/manifest.json</loc>
+    <loc>http://beihai-yu.github.io/timeline/index.html</loc>
     
-    <lastmod>2021-08-02</lastmod>
+    <lastmod>2021-09-26</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://beihai-yu.github.io/archives/index.html</loc>
+    
+    <lastmod>2021-09-26</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://beihai-yu.github.io/tags/index.html</loc>
+    
+    <lastmod>2021-09-26</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://beihai-yu.github.io/books/index.html</loc>
+    
+    <lastmod>2021-09-26</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://beihai-yu.github.io/movies/index.html</loc>
+    
+    <lastmod>2021-09-26</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://beihai-yu.github.io/bangumis/index.html</loc>
+    
+    <lastmod>2021-09-26</lastmod>
     
   </url>
   
   <url>
     <loc>http://beihai-yu.github.io/music/index.html</loc>
     
-    <lastmod>2021-08-02</lastmod>
+    <lastmod>2021-09-25</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://beihai-yu.github.io/contact/index.html</loc>
+    
+    <lastmod>2021-09-25</lastmod>
     
   </url>
   
   <url>
     <loc>http://beihai-yu.github.io/gallery/index.html</loc>
+    
+    <lastmod>2021-09-25</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://beihai-yu.github.io/categories/index.html</loc>
+    
+    <lastmod>2021-09-25</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://beihai-yu.github.io/friends/index.html</loc>
+    
+    <lastmod>2021-09-25</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://beihai-yu.github.io/about/index.html</loc>
+    
+    <lastmod>2021-09-25</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://beihai-yu.github.io/2021/09/25/java-ji-chu-3-mian-xiang-dui-xiang-xia-pian/</loc>
+    
+    <lastmod>2021-09-25</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://beihai-yu.github.io/2021/09/25/java-ji-chu-3-mian-xiang-dui-xiang-zhong-pian/</loc>
+    
+    <lastmod>2021-09-25</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://beihai-yu.github.io/2021/09/25/java-ji-chu-3-mian-xiang-dui-xiang-shang-pian/</loc>
+    
+    <lastmod>2021-09-25</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://beihai-yu.github.io/2021/09/01/java-yu-yan-gai-shu/</loc>
+    
+    <lastmod>2021-09-24</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://beihai-yu.github.io/2021/09/04/java-yu-fa-bian-liang-yu-yun-suan-fu/</loc>
+    
+    <lastmod>2021-09-24</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://beihai-yu.github.io/2021/09/25/java-ji-chu-3-shu-zu/</loc>
+    
+    <lastmod>2021-09-24</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://beihai-yu.github.io/manifest.json</loc>
     
     <lastmod>2021-08-02</lastmod>
     
@@ -44,51 +149,9 @@
   </url>
   
   <url>
-    <loc>http://beihai-yu.github.io/categories/index.html</loc>
-    
-    <lastmod>2021-08-02</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://beihai-yu.github.io/friends/index.html</loc>
-    
-    <lastmod>2021-08-02</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://beihai-yu.github.io/tags/index.html</loc>
-    
-    <lastmod>2021-08-02</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://beihai-yu.github.io/login/index.html</loc>
     
     <lastmod>2021-08-02</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://beihai-yu.github.io/movies/index.html</loc>
-    
-    <lastmod>2021-08-01</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://beihai-yu.github.io/books/index.html</loc>
-    
-    <lastmod>2021-08-01</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://beihai-yu.github.io/bangumis/index.html</loc>
-    
-    <lastmod>2021-08-01</lastmod>
     
   </url>
   
@@ -114,21 +177,7 @@
   </url>
   
   <url>
-    <loc>http://beihai-yu.github.io/contact/index.html</loc>
-    
-    <lastmod>2021-07-31</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://beihai-yu.github.io/2019/08/05/404/</loc>
-    
-    <lastmod>2021-07-31</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://beihai-yu.github.io/2021/07/31/test/</loc>
     
     <lastmod>2021-07-31</lastmod>
     
@@ -148,17 +197,10 @@
     
   </url>
   
-  <url>
-    <loc>http://beihai-yu.github.io/2021/08/01/test1/</loc>
-    
-    <lastmod>2020-07-31</lastmod>
-    
-  </url>
-  
 
   <url>
     <loc>http://beihai-yu.github.io/</loc>
-    <lastmod>2021-08-04</lastmod>
+    <lastmod>2021-09-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -166,35 +208,49 @@
   
   <url>
     <loc>http://beihai-yu.github.io/tags/Hexo/</loc>
-    <lastmod>2021-08-04</lastmod>
+    <lastmod>2021-09-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://beihai-yu.github.io/tags/Gitee/</loc>
-    <lastmod>2021-08-04</lastmod>
+    <lastmod>2021-09-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://beihai-yu.github.io/tags/Typera/</loc>
-    <lastmod>2021-08-04</lastmod>
+    <lastmod>2021-09-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://beihai-yu.github.io/tags/picGo/</loc>
-    <lastmod>2021-08-04</lastmod>
+    <lastmod>2021-09-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://beihai-yu.github.io/tags/Java-Android/</loc>
-    <lastmod>2021-08-04</lastmod>
+    <loc>http://beihai-yu.github.io/tags/IDEA/</loc>
+    <lastmod>2021-09-26</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://beihai-yu.github.io/tags/Docker/</loc>
+    <lastmod>2021-09-26</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://beihai-yu.github.io/tags/Java/</loc>
+    <lastmod>2021-09-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
@@ -203,7 +259,21 @@
   
   <url>
     <loc>http://beihai-yu.github.io/categories/Hexo/</loc>
-    <lastmod>2021-08-04</lastmod>
+    <lastmod>2021-09-26</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://beihai-yu.github.io/categories/IDEA/</loc>
+    <lastmod>2021-09-26</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://beihai-yu.github.io/categories/Java/</loc>
+    <lastmod>2021-09-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
