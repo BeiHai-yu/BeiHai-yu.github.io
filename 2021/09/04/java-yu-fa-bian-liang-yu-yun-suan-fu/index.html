@@ -189,29 +189,29 @@
 <h3 id="运算符">运算符</h3>
 <h4 id="算术运算符">算术运算符</h4>
 <p><img src="https://gitee.com/BeiHai-yu/xiaoxin-image/raw/master/images/20210901204448.png" alt="image-20210901204448873"></p>
-<pre class="language-java" data-language="java"><code class="language-java"><span class="token comment">// %:取余运算</span>
-		<span class="token comment">//结果的符号与被模数的符号相同</span>
-		<span class="token comment">//开发中，经常使用%来判断能否被除尽的情况。</span></code></pre>
+<pre class="language-java" data-language="java"><code class="language-java">// %:取余运算
+		//结果的符号与被模数的符号相同
+		//开发中，经常使用%来判断能否被除尽的情况。</code></pre>
 <h4 id="赋值运算符">赋值运算符</h4>
 <p>符号：=</p>
 <p>​		当“=”两侧数据类型不一致时，可以使用自动类型转换或使用强制类型转换原则进行处理。</p>
 <p>​		支持连续赋值。</p>
 <p>扩展赋值运算符： +=, -=, *=, /=, %=</p>
-<pre class="language-java" data-language="java"><code class="language-java"><span class="token comment">// 【特别说明的】</span>
-<span class="token comment">// 1.运算的结果不会改变变量本身的数据类型</span>
-<span class="token comment">// 2.</span>
-		<span class="token comment">//开发中，如果希望变量实现+2的操作，有几种方法？(前提：int num = 10;)</span>
-		<span class="token comment">//方式一：num = num + 2;</span>
-		<span class="token comment">//方式二：num += 2; (推荐)</span>
+<pre class="language-java" data-language="java"><code class="language-java">// 【特别说明的】
+// 1.运算的结果不会改变变量本身的数据类型
+// 2.
+		//开发中，如果希望变量实现+2的操作，有几种方法？(前提：int num = 10;)
+		//方式一：num = num + 2;
+		//方式二：num += 2; (推荐)
 		
-		<span class="token comment">//开发中，如果希望变量实现+1的操作，有几种方法？(前提：int num = 10;)</span>
-		<span class="token comment">//方式一：num = num + 1;</span>
-		<span class="token comment">//方式二：num += 1; </span>
-		<span class="token comment">//方式三：num++; (推荐)</span></code></pre>
-<pre class="language-java" data-language="java"><code class="language-java"><span class="token comment">// 思考：</span>
-<span class="token keyword">int</span> n <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
-n <span class="token operator">+=</span> <span class="token punctuation">(</span>n<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token punctuation">(</span><span class="token operator">++</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">// 34</span></code></pre>
+		//开发中，如果希望变量实现+1的操作，有几种方法？(前提：int num = 10;)
+		//方式一：num = num + 1;
+		//方式二：num += 1; 
+		//方式三：num++; (推荐)</code></pre>
+<pre class="language-java" data-language="java"><code class="language-java">// 思考：
+int n = 10;
+n += (n++) + (++n);
+System.out.println(n);// 34</code></pre>
 <h4 id="比较运算符（关系运算符）">比较运算符（关系运算符）</h4>
 <p><img src="https://gitee.com/BeiHai-yu/xiaoxin-image/raw/master/images/20210901205211.png" alt="image-20210901205211318"></p>
 <ol start="3">
@@ -231,75 +231,75 @@ n <span class="token operator">+=</span> <span class="token punctuation">(</span
 <h4 id="逻辑运算符">逻辑运算符</h4>
 <p><img src="https://gitee.com/BeiHai-yu/xiaoxin-image/raw/master/images/20210901210924.png" alt="image-20210901210924481"></p>
 <p><img src="https://gitee.com/BeiHai-yu/xiaoxin-image/raw/master/images/20210901211918.png" alt="image-20210901211918478"></p>
-<pre class="language-java" data-language="java"><code class="language-java"><span class="token comment">// 面试题</span>
-<span class="token number">1.</span> <span class="token keyword">class</span> <span class="token class-name">Test</span> <span class="token punctuation">{</span>
-<span class="token number">2.</span> <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> main <span class="token punctuation">(</span><span class="token class-name">String</span> <span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-<span class="token number">3</span>． <span class="token keyword">boolean</span> x<span class="token operator">=</span><span class="token boolean">true</span><span class="token punctuation">;</span>
-<span class="token number">4</span>． <span class="token keyword">boolean</span> y<span class="token operator">=</span><span class="token boolean">false</span><span class="token punctuation">;</span>
-<span class="token number">5</span>． <span class="token keyword">short</span> z<span class="token operator">=</span><span class="token number">42</span><span class="token punctuation">;</span>
-<span class="token number">6</span>． <span class="token comment">//if(y == true)</span>
-<span class="token number">7.</span> <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token punctuation">(</span>z<span class="token operator">++</span><span class="token operator">==</span><span class="token number">42</span><span class="token punctuation">)</span><span class="token operator">&amp;&amp;</span><span class="token punctuation">(</span>y<span class="token operator">=</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">)</span>z<span class="token operator">++</span><span class="token punctuation">;</span>
-<span class="token number">8.</span> <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token punctuation">(</span>x<span class="token operator">=</span><span class="token boolean">false</span><span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token punctuation">(</span><span class="token operator">++</span>z<span class="token operator">==</span><span class="token number">45</span><span class="token punctuation">)</span><span class="token punctuation">)</span> z<span class="token operator">++</span><span class="token punctuation">;</span>
-<span class="token number">9</span>．
-<span class="token number">10.</span> <span class="token class-name">System</span><span class="token punctuation">.</span> out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>“z<span class="token operator">=</span>”<span class="token operator">+</span>z<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token number">11.</span> <span class="token punctuation">}</span>
-<span class="token number">12.</span> <span class="token punctuation">}</span>
-结果为：<span class="token number">46</span></code></pre>
+<pre class="language-java" data-language="java"><code class="language-java">// 面试题
+1. class Test {
+2. public static void main (String [] args) {
+3． boolean x=true;
+4． boolean y=false;
+5． short z=42;
+6． //if(y == true)
+7. if((z++==42)&amp;&amp;(y=true))z++;
+8. if((x=false) || (++z==45)) z++;
+9．
+10. System. out.println(“z=”+z);
+11. }
+12. }
+结果为：46</code></pre>
 <h4 id="位运算符">位运算符</h4>
 <p><img src="https://gitee.com/BeiHai-yu/xiaoxin-image/raw/master/images/20210901212616.png" alt="image-20210901212616784"></p>
 <p><img src="https://gitee.com/BeiHai-yu/xiaoxin-image/raw/master/images/20210901215230.png" alt="image-20210901215229983"></p>
-<pre class="language-java" data-language="java"><code class="language-java"><span class="token operator">&lt;&lt;</span> ：在一定范围内，每向左移<span class="token number">1</span>位，相当于 <span class="token operator">*</span> <span class="token number">2</span>
-<span class="token operator">&gt;&gt;</span> <span class="token operator">:</span>在一定范围内，每向右移<span class="token number">1</span>位，相当于 <span class="token operator">/</span> <span class="token number">2</span>
-<span class="token comment">// 【面试题】 你能否写出最高效的2 * 8的实现方式？ </span>
-<span class="token comment">//  答案：2 &lt;&lt; 3  或  8 &lt;&lt; 1</span></code></pre>
+<pre class="language-java" data-language="java"><code class="language-java">&lt;&lt; ：在一定范围内，每向左移1位，相当于 * 2
+&gt;&gt; :在一定范围内，每向右移1位，相当于 / 2
+// 【面试题】 你能否写出最高效的2 * 8的实现方式？ 
+//  答案：2 &lt;&lt; 3  或  8 &lt;&lt; 1</code></pre>
 <p><img src="https://gitee.com/BeiHai-yu/xiaoxin-image/raw/master/images/20210901215028.png" alt="image-20210901215028235"></p>
 <p><img src="https://gitee.com/BeiHai-yu/xiaoxin-image/raw/master/images/20210901215045.png" alt="image-20210901215045451"></p>
-<pre class="language-java" data-language="java"><code class="language-java"><span class="token comment">//练习：交换两个变量的值</span>
-<span class="token keyword">int</span> num1 <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
-<span class="token keyword">int</span> num2 <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">;</span>
-<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"num1 = "</span> <span class="token operator">+</span> num1 <span class="token operator">+</span> <span class="token string">",num2 = "</span> <span class="token operator">+</span> num2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre class="language-java" data-language="java"><code class="language-java">//练习：交换两个变量的值
+int num1 = 10;
+int num2 = 20;
+System.out.println("num1 = " + num1 + ",num2 = " + num2);
 
-<span class="token comment">//方式一：定义临时变量的方式</span>
-<span class="token comment">//推荐的方式</span>
-<span class="token keyword">int</span> temp <span class="token operator">=</span> num1<span class="token punctuation">;</span>
-num1 <span class="token operator">=</span> num2<span class="token punctuation">;</span>
-num2 <span class="token operator">=</span> temp<span class="token punctuation">;</span>
+//方式一：定义临时变量的方式
+//推荐的方式
+int temp = num1;
+num1 = num2;
+num2 = temp;
 
-<span class="token comment">//方式二：好处：不用定义临时变量  </span>
-<span class="token comment">//弊端：① 相加操作可能超出存储范围 ② 有局限性：只能适用于数值类型</span>
-<span class="token comment">//num1 = num1 + num2;</span>
-<span class="token comment">//num2 = num1 - num2;</span>
-<span class="token comment">//num1 = num1 - num2;</span>
+//方式二：好处：不用定义临时变量  
+//弊端：① 相加操作可能超出存储范围 ② 有局限性：只能适用于数值类型
+//num1 = num1 + num2;
+//num2 = num1 - num2;
+//num1 = num1 - num2;
 
-<span class="token comment">//方式三：使用位运算符</span>
-<span class="token comment">//有局限性：只能适用于数值类型</span>
-<span class="token comment">//num1 = num1 ^ num2;</span>
-<span class="token comment">//num2 = num1 ^ num2;</span>
-<span class="token comment">//num1 = num1 ^ num2;</span></code></pre>
-<pre class="language-java" data-language="java"><code class="language-java"><span class="token comment">// 如何求一个0~255范围内的整数的十六进制值，例如60的十六进制表示形式3C</span>
-<span class="token comment">//方式一：自动实现</span>
-<span class="token class-name">String</span> str1 <span class="token operator">=</span> <span class="token class-name">Integer</span><span class="token punctuation">.</span><span class="token function">toBinaryString</span><span class="token punctuation">(</span><span class="token number">60</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token class-name">String</span> str2 <span class="token operator">=</span> <span class="token class-name">Integer</span><span class="token punctuation">.</span><span class="token function">toHexString</span><span class="token punctuation">(</span><span class="token number">60</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+//方式三：使用位运算符
+//有局限性：只能适用于数值类型
+//num1 = num1 ^ num2;
+//num2 = num1 ^ num2;
+//num1 = num1 ^ num2;</code></pre>
+<pre class="language-java" data-language="java"><code class="language-java">// 如何求一个0~255范围内的整数的十六进制值，例如60的十六进制表示形式3C
+//方式一：自动实现
+String str1 = Integer.toBinaryString(60);
+String str2 = Integer.toHexString(60);
 
-<span class="token comment">//方式二：手动实现</span>
-<span class="token keyword">int</span> i1 <span class="token operator">=</span> <span class="token number">60</span><span class="token punctuation">;</span>
-<span class="token keyword">int</span> i2 <span class="token operator">=</span> i1<span class="token operator">&amp;</span><span class="token number">15</span><span class="token punctuation">;</span>
-<span class="token class-name">String</span> j <span class="token operator">=</span> <span class="token punctuation">(</span>i2 <span class="token operator">&gt;</span> <span class="token number">9</span><span class="token punctuation">)</span><span class="token operator">?</span> <span class="token punctuation">(</span><span class="token keyword">char</span><span class="token punctuation">)</span><span class="token punctuation">(</span>i2<span class="token operator">-</span><span class="token number">10</span> <span class="token operator">+</span> <span class="token string">'A'</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">""</span> <span class="token operator">:</span> i2<span class="token operator">+</span><span class="token string">""</span><span class="token punctuation">;</span>
-<span class="token keyword">int</span> temp <span class="token operator">=</span> i1 <span class="token operator">&gt;&gt;&gt;</span> <span class="token number">4</span><span class="token punctuation">;</span>
-i2 <span class="token operator">=</span> temp <span class="token operator">&amp;</span> <span class="token number">15</span><span class="token punctuation">;</span>
-<span class="token class-name">String</span> k <span class="token operator">=</span> <span class="token punctuation">(</span>i2 <span class="token operator">&gt;</span> <span class="token number">9</span><span class="token punctuation">)</span><span class="token operator">?</span> <span class="token punctuation">(</span><span class="token keyword">char</span><span class="token punctuation">)</span><span class="token punctuation">(</span>i2<span class="token operator">-</span><span class="token number">10</span> <span class="token operator">+</span> <span class="token string">'A'</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">""</span> <span class="token operator">:</span> i2<span class="token operator">+</span><span class="token string">""</span><span class="token punctuation">;</span>
-<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>k<span class="token operator">+</span><span class="token string">""</span><span class="token operator">+</span>j<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+//方式二：手动实现
+int i1 = 60;
+int i2 = i1&amp;15;
+String j = (i2 &gt; 9)? (char)(i2-10 + 'A')+"" : i2+"";
+int temp = i1 &gt;&gt;&gt; 4;
+i2 = temp &amp; 15;
+String k = (i2 &gt; 9)? (char)(i2-10 + 'A')+"" : i2+"";
+System.out.println(k+""+j);</code></pre>
 <h4 id="三元运算符">三元运算符</h4>
 <p><img src="https://gitee.com/BeiHai-yu/xiaoxin-image/raw/master/images/20210902100943.png" alt="image-20210902100942951"></p>
 <p>凡是可以使用三元运算符的地方，都可以改写为if-else。反之，不成立。</p>
 <p>如果程序既可以使用三元运算符，又可以使用if-else结构，那么优先选择三元运算符。原因：简洁、执行效率高。</p>
-<pre class="language-java" data-language="java"><code class="language-java"><span class="token comment">//获取两个整数的较大值</span>
-<span class="token keyword">int</span> max <span class="token operator">=</span> <span class="token punctuation">(</span>m <span class="token operator">&gt;</span> n<span class="token punctuation">)</span><span class="token operator">?</span> m <span class="token operator">:</span> n<span class="token punctuation">;</span>
-<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>max<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment">//获取三个数的最大值</span>
-<span class="token keyword">int</span> max1 <span class="token operator">=</span> <span class="token punctuation">(</span>n1 <span class="token operator">&gt;</span> n2<span class="token punctuation">)</span><span class="token operator">?</span> n1 <span class="token operator">:</span> n2<span class="token punctuation">;</span>
-<span class="token keyword">int</span> max2 <span class="token operator">=</span> <span class="token punctuation">(</span>max1 <span class="token operator">&gt;</span> n3<span class="token punctuation">)</span><span class="token operator">?</span> max1 <span class="token operator">:</span> n3<span class="token punctuation">;</span>
-<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"三个数中的最大值为："</span> <span class="token operator">+</span> max2<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<pre class="language-java" data-language="java"><code class="language-java">//获取两个整数的较大值
+int max = (m &gt; n)? m : n;
+System.out.println(max);
+//获取三个数的最大值
+int max1 = (n1 &gt; n2)? n1 : n2;
+int max2 = (max1 &gt; n3)? max1 : n3;
+System.out.println("三个数中的最大值为：" + max2);</code></pre>
 <h4 id="运算符的优先级">运算符的优先级</h4>
 <p><img src="https://gitee.com/BeiHai-yu/xiaoxin-image/raw/master/images/20210902101622.png" alt="image-20210902101622891"></p>
 <h3 id="程序流程控制">程序流程控制</h3>
@@ -316,21 +316,21 @@ i2 <span class="token operator">=</span> temp <span class="token operator">&amp;
 <p>​	注：JDK1.5提供了foreach循环，方便的遍历集合、数组元素。</p>
 <h4 id="顺序结构">顺序结构</h4>
 <p>Java中定义成员变量时采用合法的前向引用。</p>
-<pre class="language-java" data-language="java"><code class="language-java"><span class="token comment">// 如</span>
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Test</span><span class="token punctuation">{</span>
-<span class="token keyword">int</span> num1 <span class="token operator">=</span> <span class="token number">12</span><span class="token punctuation">;</span>
-<span class="token keyword">int</span> num2 <span class="token operator">=</span> num1 <span class="token operator">+</span> <span class="token number">2</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
+<pre class="language-java" data-language="java"><code class="language-java">// 如
+public class Test{
+int num1 = 12;
+int num2 = num1 + 2;
+}
 错误形式：
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Test</span><span class="token punctuation">{</span>
-<span class="token keyword">int</span> num2 <span class="token operator">=</span> num1 <span class="token operator">+</span> <span class="token number">2</span>；
-<span class="token keyword">int</span> num1 <span class="token operator">=</span> <span class="token number">12</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
+public class Test{
+int num2 = num1 + 2；
+int num1 = 12;
+}
 
-执行语句<span class="token number">1</span>
-<span class="token operator">|</span>
-执行语句<span class="token number">2</span>
-<span class="token operator">|</span>
+执行语句1
+|
+执行语句2
+|
 执行语句n</code></pre>
 <h4 id="分支语句">分支语句</h4>
 <h5 id="if-else">if-else</h5>
@@ -339,7 +339,7 @@ i2 <span class="token operator">=</span> temp <span class="token operator">&amp;
 <p><img src="https://gitee.com/BeiHai-yu/xiaoxin-image/raw/master/images/20210902102723.png" alt="image-20210902102723107"></p>
 <h6 id="练习-包含面试题">练习(包含面试题)</h6>
 <p><strong>如何从键盘获取不同类型的变量：需要使用Scanner类。</strong></p>
-<pre class="language-java" data-language="java"><code class="language-java"><span class="token comment">/*
+<pre class="language-java" data-language="java"><code class="language-java">/*
 如何从键盘获取不同类型的变量：需要使用Scanner类
 
 具体实现步骤：
@@ -350,8 +350,8 @@ i2 <span class="token operator">=</span> temp <span class="token operator">&amp;
 注意：
 需要根据相应的方法，来输入指定类型的值。如果输入的数据类型与要求的类型不匹配时，会报异常：InputMisMatchException
 导致程序终止。
-*/</span></code></pre>
-<pre class="language-java" data-language="java"><code class="language-java"><span class="token comment">/*
+*/</code></pre>
+<pre class="language-java" data-language="java"><code class="language-java">/*
 课后练习1
 岳小鹏参加Java考试，他和父亲岳不群达成承诺：
 如果：
@@ -367,68 +367,68 @@ i2 <span class="token operator">=</span> temp <span class="token operator">&amp;
    &gt; 如果多个条件表达式之间是“互斥”关系(或没有交集的关系),哪个判断和执行语句声明在上面还是下面，无所谓。
    &gt; 如果多个条件表达式之间有交集的关系，需要根据实际情况，考虑清楚应该将哪个结构声明在上面。
    &gt; 如果多个条件表达式之间有包含的关系，通常情况下，需要将范围小的声明在范围大的上面。否则，范围小的就没机会执行了。
-*/</span>
+*/
 
-<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">Scanner</span><span class="token punctuation">;</span>
-<span class="token keyword">class</span> <span class="token class-name">IfTest</span> <span class="token punctuation">{</span>
-	<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-		<span class="token class-name">Scanner</span> scan <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Scanner</span><span class="token punctuation">(</span><span class="token class-name">System</span><span class="token punctuation">.</span>in<span class="token punctuation">)</span><span class="token punctuation">;</span>
+import java.util.Scanner;
+class IfTest {
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
 		
-		<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"请输入岳小鹏期末成绩：(0-100)"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-		<span class="token keyword">int</span> score <span class="token operator">=</span> scan<span class="token punctuation">.</span><span class="token function">nextInt</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		System.out.println("请输入岳小鹏期末成绩：(0-100)");
+		int score = scan.nextInt();
 
-		<span class="token keyword">if</span><span class="token punctuation">(</span>score <span class="token operator">==</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-			<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"奖励一辆BMW"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//be my wife!  BMW &lt;---&gt; MSN</span>
-		<span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>score <span class="token operator">&gt;</span> <span class="token number">80</span> <span class="token operator">&amp;&amp;</span>  score <span class="token operator">&lt;=</span> <span class="token number">99</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-			<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"奖励一台iphone xs max"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-		<span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>score <span class="token operator">&gt;=</span> <span class="token number">60</span> <span class="token operator">&amp;&amp;</span> score <span class="token operator">&lt;=</span> <span class="token number">80</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-			<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"奖励一个 iPad"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-		<span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
-			<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"什么奖励也没有"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-		<span class="token punctuation">}</span>
-	<span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre>
-<pre class="language-java" data-language="java"><code class="language-java"><span class="token comment">// 课后练习2</span>
-<span class="token comment">// 1)对下列代码，若有输出，指出输出结果。</span>
-<span class="token keyword">int</span> x <span class="token operator">=</span> <span class="token number">4</span><span class="token punctuation">;</span>
-<span class="token keyword">int</span> y <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
-<span class="token keyword">if</span> <span class="token punctuation">(</span>x <span class="token operator">&gt;</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-	<span class="token keyword">if</span> <span class="token punctuation">(</span>y <span class="token operator">&gt;</span> <span class="token number">2</span><span class="token punctuation">)</span> 
-		<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>x <span class="token operator">+</span> y<span class="token punctuation">)</span><span class="token punctuation">;</span>
-		<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"atguigu"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span> <span class="token keyword">else</span>
-	<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"x is "</span> <span class="token operator">+</span> x<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment">// 输出atguigu 相当于</span>
-<span class="token keyword">if</span> <span class="token punctuation">(</span>x <span class="token operator">&gt;</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-	<span class="token keyword">if</span> <span class="token punctuation">(</span>y <span class="token operator">&gt;</span> <span class="token number">2</span><span class="token punctuation">)</span> 
-		<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>x <span class="token operator">+</span> y<span class="token punctuation">)</span><span class="token punctuation">;</span>
-	<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"atguigu"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span> <span class="token keyword">else</span>
-	<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"x is "</span> <span class="token operator">+</span> x<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment">// 2)变形（没有括号的情形）：</span>
-<span class="token keyword">int</span> x <span class="token operator">=</span> <span class="token number">4</span><span class="token punctuation">;</span>
-<span class="token keyword">int</span> y <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
-<span class="token keyword">if</span> <span class="token punctuation">(</span>x <span class="token operator">&gt;</span> <span class="token number">2</span><span class="token punctuation">)</span> 
-	<span class="token keyword">if</span> <span class="token punctuation">(</span>y <span class="token operator">&gt;</span> <span class="token number">2</span><span class="token punctuation">)</span> 
-		<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>x <span class="token operator">+</span> y<span class="token punctuation">)</span><span class="token punctuation">;</span>
-		<span class="token comment">// System.out.println("atguigu");</span>
-<span class="token keyword">else</span> <span class="token comment">// 就近原则，与最近的if配对</span>
-	<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"x is "</span> <span class="token operator">+</span> x<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment">// 输出 x is 4</span></code></pre>
-<pre class="language-java" data-language="java"><code class="language-java"><span class="token comment">//课后练习3：测算狗的年龄</span>
-<span class="token keyword">int</span> dogAge <span class="token operator">=</span> <span class="token number">6</span><span class="token punctuation">;</span>
-<span class="token keyword">if</span><span class="token punctuation">(</span>dogAge <span class="token operator">&gt;=</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> dogAge <span class="token operator">&lt;=</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-	<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"相当于人的年龄："</span> <span class="token operator">+</span> dogAge <span class="token operator">*</span> <span class="token number">10.5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span> dogAge <span class="token operator">&gt;</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-	<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"相当于人的年龄："</span> <span class="token operator">+</span> <span class="token punctuation">(</span><span class="token number">2</span> <span class="token operator">*</span> <span class="token number">10.5</span> <span class="token operator">+</span> <span class="token punctuation">(</span>dogAge <span class="token operator">-</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
-	<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"狗狗还没出生呢！"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
+		if(score == 100){
+			System.out.println("奖励一辆BMW");//be my wife!  BMW &lt;---&gt; MSN
+		}else if(score &gt; 80 &amp;&amp;  score &lt;= 99){
+			System.out.println("奖励一台iphone xs max");
+		}else if(score &gt;= 60 &amp;&amp; score &lt;= 80){
+			System.out.println("奖励一个 iPad");
+		}else{
+			System.out.println("什么奖励也没有");
+		}
+	}
+}</code></pre>
+<pre class="language-java" data-language="java"><code class="language-java">// 课后练习2
+// 1)对下列代码，若有输出，指出输出结果。
+int x = 4;
+int y = 1;
+if (x &gt; 2) {
+	if (y &gt; 2) 
+		System.out.println(x + y);
+		System.out.println("atguigu");
+} else
+	System.out.println("x is " + x);
+// 输出atguigu 相当于
+if (x &gt; 2) {
+	if (y &gt; 2) 
+		System.out.println(x + y);
+	System.out.println("atguigu");
+} else
+	System.out.println("x is " + x);
+// 2)变形（没有括号的情形）：
+int x = 4;
+int y = 1;
+if (x &gt; 2) 
+	if (y &gt; 2) 
+		System.out.println(x + y);
+		// System.out.println("atguigu");
+else // 就近原则，与最近的if配对
+	System.out.println("x is " + x);
+// 输出 x is 4</code></pre>
+<pre class="language-java" data-language="java"><code class="language-java">//课后练习3：测算狗的年龄
+int dogAge = 6;
+if(dogAge &gt;= 0 &amp;&amp; dogAge &lt;= 2){
+	System.out.println("相当于人的年龄：" + dogAge * 10.5);
+}else if( dogAge &gt; 2){
+	System.out.println("相当于人的年龄：" + (2 * 10.5 + (dogAge - 2) * 4));
+}else{
+	System.out.println("狗狗还没出生呢！");
+}
 
-<span class="token comment">//课后练习4：如何获取一个随机数：10 - 99</span>
-<span class="token keyword">int</span> value <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">90</span> <span class="token operator">+</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">// [0.0,1.0) --&gt; [0.0,90.0) ---&gt;[10.0, 100.0) --&gt;[10,99]</span>
-<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment">//公式：[a,b]  :  (int)(Math.random() * (b - a + 1) )+ a</span></code></pre>
+//课后练习4：如何获取一个随机数：10 - 99
+int value = (int)(Math.random() * 90 + 10);// [0.0,1.0) --&gt; [0.0,90.0) ---&gt;[10.0, 100.0) --&gt;[10,99]
+System.out.println(value);
+//公式：[a,b]  :  (int)(Math.random() * (b - a + 1) )+ a</code></pre>
 <h5 id="switch-case">switch-case</h5>
 <h6 id="基本结构-2">基本结构</h6>
 <p><img src="https://gitee.com/BeiHai-yu/xiaoxin-image/raw/master/images/20210902121518.png" alt="image-20210902121518629"></p>
@@ -443,40 +443,40 @@ i2 <span class="token operator">=</span> temp <span class="token operator">&amp;
 ⑥ default:相当于if-else结构中的else.<br>
 default结构是可选的，而且位置是灵活的。<br>
 3.如果switch-case结构中的多个case的执行语句相同，则可以考虑进行合并。</p>
-<pre class="language-java" data-language="java"><code class="language-java"><span class="token comment">// 例：</span>
-    <span class="token keyword">int</span> score <span class="token operator">=</span> <span class="token number">78</span><span class="token punctuation">;</span>
-		<span class="token keyword">switch</span><span class="token punctuation">(</span>score <span class="token operator">/</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-		<span class="token keyword">case</span> <span class="token number">0</span><span class="token operator">:</span>
-		<span class="token keyword">case</span> <span class="token number">1</span><span class="token operator">:</span>
-		<span class="token keyword">case</span> <span class="token number">2</span><span class="token operator">:</span>
-		<span class="token keyword">case</span> <span class="token number">3</span><span class="token operator">:</span>
-		<span class="token keyword">case</span> <span class="token number">4</span><span class="token operator">:</span>
-		<span class="token keyword">case</span> <span class="token number">5</span><span class="token operator">:</span>
-			<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"不及格"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-			<span class="token keyword">break</span><span class="token punctuation">;</span>
-		<span class="token keyword">case</span> <span class="token number">6</span><span class="token operator">:</span>
-		<span class="token keyword">case</span> <span class="token number">7</span><span class="token operator">:</span>
-		<span class="token keyword">case</span> <span class="token number">8</span><span class="token operator">:</span>
-		<span class="token keyword">case</span> <span class="token number">9</span><span class="token operator">:</span>
-		<span class="token keyword">case</span> <span class="token number">10</span><span class="token operator">:</span>
-			<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"及格"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-			<span class="token keyword">break</span><span class="token punctuation">;</span>
-		<span class="token punctuation">}</span>
-		<span class="token comment">//更优的解决方案：</span>
-		<span class="token keyword">switch</span><span class="token punctuation">(</span>score <span class="token operator">/</span> <span class="token number">60</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-		<span class="token keyword">case</span> <span class="token number">0</span><span class="token operator">:</span>
-			<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"不及格"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-			<span class="token keyword">break</span><span class="token punctuation">;</span>
-		<span class="token keyword">case</span> <span class="token number">1</span><span class="token operator">:</span>
-			<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"及格"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-			<span class="token keyword">break</span><span class="token punctuation">;</span>
-		<span class="token punctuation">}</span>
-	<span class="token punctuation">}</span></code></pre>
+<pre class="language-java" data-language="java"><code class="language-java">// 例：
+    int score = 78;
+		switch(score / 10){
+		case 0:
+		case 1:
+		case 2:
+		case 3:
+		case 4:
+		case 5:
+			System.out.println("不及格");
+			break;
+		case 6:
+		case 7:
+		case 8:
+		case 9:
+		case 10:
+			System.out.println("及格");
+			break;
+		}
+		//更优的解决方案：
+		switch(score / 60){
+		case 0:
+			System.out.println("不及格");
+			break;
+		case 1:
+			System.out.println("及格");
+			break;
+		}
+	}</code></pre>
 <p>4.break在switch-case中是可选的</p>
 <h6 id="练习">练习</h6>
-<pre class="language-java" data-language="java"><code class="language-java"><span class="token comment">// 一三五七八十腊（都是31天）</span>
-<span class="token comment">// 闰年二月是28天，不是闰年二月是29天</span>
-<span class="token comment">/*
+<pre class="language-java" data-language="java"><code class="language-java">// 一三五七八十腊（都是31天）
+// 闰年二月是28天，不是闰年二月是29天
+/*
 从键盘分别输入年、月、日，判断这一天是当年的第几天
  
    注：判断一年是否是闰年的标准：
@@ -490,64 +490,64 @@ default结构是可选的，而且位置是灵活的。<br>
 2. 我们写分支结构时，当发现既可以使用switch-case,（同时，switch中表达式的取值情况不太多），
   又可以使用if-else时，我们优先选择使用switch-case。原因：switch-case执行效率稍高。
 
-*/</span>
-<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">Scanner</span><span class="token punctuation">;</span>
-<span class="token keyword">class</span> <span class="token class-name">SwitchCaseExer</span> <span class="token punctuation">{</span>
-	<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+*/
+import java.util.Scanner;
+class SwitchCaseExer {
+	public static void main(String[] args) {
 		
-		<span class="token class-name">Scanner</span> scan <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Scanner</span><span class="token punctuation">(</span><span class="token class-name">System</span><span class="token punctuation">.</span>in<span class="token punctuation">)</span><span class="token punctuation">;</span>
-		<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"请输入year："</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-		<span class="token keyword">int</span> year <span class="token operator">=</span> scan<span class="token punctuation">.</span><span class="token function">nextInt</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-		<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"请输入month："</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-		<span class="token keyword">int</span> month <span class="token operator">=</span> scan<span class="token punctuation">.</span><span class="token function">nextInt</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-		<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"请输入day："</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-		<span class="token keyword">int</span> day <span class="token operator">=</span> scan<span class="token punctuation">.</span><span class="token function">nextInt</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		Scanner scan = new Scanner(System.in);
+		System.out.println("请输入year：");
+		int year = scan.nextInt();
+		System.out.println("请输入month：");
+		int month = scan.nextInt();
+		System.out.println("请输入day：");
+		int day = scan.nextInt();
 
 
-		<span class="token comment">//定义一个变量来保存总天数</span>
-		<span class="token keyword">int</span> sumDays <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+		//定义一个变量来保存总天数
+		int sumDays = 0;
 
-		<span class="token keyword">switch</span><span class="token punctuation">(</span>month<span class="token punctuation">)</span><span class="token punctuation">{</span>
-		<span class="token keyword">case</span> <span class="token number">12</span><span class="token operator">:</span>
-			sumDays <span class="token operator">+=</span> <span class="token number">30</span><span class="token punctuation">;</span>
-		<span class="token keyword">case</span> <span class="token number">11</span><span class="token operator">:</span>
-			sumDays <span class="token operator">+=</span> <span class="token number">31</span><span class="token punctuation">;</span>
-		<span class="token keyword">case</span> <span class="token number">10</span><span class="token operator">:</span>
-			sumDays <span class="token operator">+=</span> <span class="token number">30</span><span class="token punctuation">;</span>
-		<span class="token keyword">case</span> <span class="token number">9</span><span class="token operator">:</span>
-			sumDays <span class="token operator">+=</span> <span class="token number">31</span><span class="token punctuation">;</span>
-		<span class="token keyword">case</span> <span class="token number">8</span><span class="token operator">:</span>
-			sumDays <span class="token operator">+=</span> <span class="token number">31</span><span class="token punctuation">;</span>
-		<span class="token keyword">case</span> <span class="token number">7</span><span class="token operator">:</span>
-			sumDays <span class="token operator">+=</span> <span class="token number">30</span><span class="token punctuation">;</span>
-		<span class="token keyword">case</span> <span class="token number">6</span><span class="token operator">:</span>
-			sumDays <span class="token operator">+=</span> <span class="token number">31</span><span class="token punctuation">;</span>
-		<span class="token keyword">case</span> <span class="token number">5</span><span class="token operator">:</span>
-			sumDays <span class="token operator">+=</span> <span class="token number">30</span><span class="token punctuation">;</span>
-		<span class="token keyword">case</span> <span class="token number">4</span><span class="token operator">:</span>
-			sumDays <span class="token operator">+=</span> <span class="token number">31</span><span class="token punctuation">;</span>
-		<span class="token keyword">case</span> <span class="token number">3</span><span class="token operator">:</span>
-			<span class="token comment">//sumDays += 28;</span>
-			<span class="token comment">//判断year是否是闰年</span>
-			<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token punctuation">(</span>year <span class="token operator">%</span> <span class="token number">4</span> <span class="token operator">==</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> year <span class="token operator">%</span> <span class="token number">100</span> <span class="token operator">!=</span> <span class="token number">0</span> <span class="token punctuation">)</span> <span class="token operator">||</span> year <span class="token operator">%</span> <span class="token number">400</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-				sumDays <span class="token operator">+=</span> <span class="token number">29</span><span class="token punctuation">;</span>
-			<span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
-				sumDays <span class="token operator">+=</span> <span class="token number">28</span><span class="token punctuation">;</span>
-			<span class="token punctuation">}</span>
+		switch(month){
+		case 12:
+			sumDays += 30;
+		case 11:
+			sumDays += 31;
+		case 10:
+			sumDays += 30;
+		case 9:
+			sumDays += 31;
+		case 8:
+			sumDays += 31;
+		case 7:
+			sumDays += 30;
+		case 6:
+			sumDays += 31;
+		case 5:
+			sumDays += 30;
+		case 4:
+			sumDays += 31;
+		case 3:
+			//sumDays += 28;
+			//判断year是否是闰年
+			if((year % 4 == 0 &amp;&amp; year % 100 != 0 ) || year % 400 == 0){
+				sumDays += 29;
+			}else{
+				sumDays += 28;
+			}
 
-		<span class="token keyword">case</span> <span class="token number">2</span><span class="token operator">:</span>
-			sumDays <span class="token operator">+=</span> <span class="token number">31</span><span class="token punctuation">;</span>
-		<span class="token keyword">case</span> <span class="token number">1</span><span class="token operator">:</span>
-			sumDays <span class="token operator">+=</span> day<span class="token punctuation">;</span>
-		<span class="token punctuation">}</span>
+		case 2:
+			sumDays += 31;
+		case 1:
+			sumDays += day;
+		}
 
-		<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>year <span class="token operator">+</span> <span class="token string">"年"</span> <span class="token operator">+</span> month <span class="token operator">+</span> <span class="token string">"月"</span> <span class="token operator">+</span> day <span class="token operator">+</span> <span class="token string">"日是当年的第"</span> <span class="token operator">+</span> sumDays <span class="token operator">+</span> <span class="token string">"天"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-	<span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre>
+		System.out.println(year + "年" + month + "月" + day + "日是当年的第" + sumDays + "天");
+	}
+}</code></pre>
 <h4 id="循环结构">循环结构</h4>
 <p><img src="https://gitee.com/BeiHai-yu/xiaoxin-image/raw/master/images/20210903172839.png" alt="image-20210903172839084"></p>
 <h5 id="for循环">for循环</h5>
-<pre class="language-java" data-language="java"><code class="language-java"><span class="token comment">/*
+<pre class="language-java" data-language="java"><code class="language-java">/*
 For循环结构的使用
 一、循环结构的4个要素
 ① 初始化条件
@@ -562,62 +562,62 @@ for(①;②;④){
 }
 
 执行过程：① - ② - ③ - ④ - ② - ③ - ④ - ... - ②
-*/</span>
-<span class="token keyword">class</span> <span class="token class-name">ForTest</span> <span class="token punctuation">{</span>
-	<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-		<span class="token comment">//例题：遍历100以内的偶数,输出所有偶数的和,输出偶数的个数</span>
-		<span class="token keyword">int</span> sum <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span><span class="token comment">//记录所有偶数的和</span>
-		<span class="token keyword">int</span> count <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span><span class="token comment">//记录偶数的个数</span>
-		<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>i <span class="token operator">&lt;=</span> <span class="token number">100</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-			<span class="token comment">//i:在for循环内有效。出了for循环就失效了。</span>
-			<span class="token keyword">if</span><span class="token punctuation">(</span>i <span class="token operator">%</span> <span class="token number">2</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-				<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
-				sum <span class="token operator">+=</span> i<span class="token punctuation">;</span>
-				count<span class="token operator">++</span><span class="token punctuation">;</span>
-			<span class="token punctuation">}</span>
-			<span class="token comment">//System.out.println("总和为：" + sum);</span>
-		<span class="token punctuation">}</span>
+*/
+class ForTest {
+	public static void main(String[] args) {
+		//例题：遍历100以内的偶数,输出所有偶数的和,输出偶数的个数
+		int sum = 0;//记录所有偶数的和
+		int count = 0;//记录偶数的个数
+		for(int i = 1;i &lt;= 100;i++){
+			//i:在for循环内有效。出了for循环就失效了。
+			if(i % 2 == 0){
+				System.out.println(i);
+				sum += i;
+				count++;
+			}
+			//System.out.println("总和为：" + sum);
+		}
 
-		<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"总和为："</span> <span class="token operator">+</span> sum<span class="token punctuation">)</span><span class="token punctuation">;</span>
-		<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"个数为："</span> <span class="token operator">+</span> count<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		System.out.println("总和为：" + sum);
+		System.out.println("个数为：" + count);
 
-	<span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre>
-<pre class="language-java" data-language="java"><code class="language-java"><span class="token comment">/*
+	}
+}</code></pre>
+<pre class="language-java" data-language="java"><code class="language-java">/*
 题目：输入两个正整数m和n，求其最大公约数和最小公倍数。
 比如：12和20的最大公约数是4，最小公倍数是60。
 说明：break关键字的使用：一旦在循环中执行到break，就跳出循环
-*/</span>
-<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">Scanner</span><span class="token punctuation">;</span>
-<span class="token keyword">class</span> <span class="token class-name">ForTest</span><span class="token punctuation">{</span>
-	<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span><span class="token punctuation">{</span>
-		<span class="token class-name">Scanner</span> scan <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Scanner</span><span class="token punctuation">(</span><span class="token class-name">System</span><span class="token punctuation">.</span>in<span class="token punctuation">)</span><span class="token punctuation">;</span>
-		<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"请输入第一个正整数："</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-		<span class="token keyword">int</span> m <span class="token operator">=</span> scan<span class="token punctuation">.</span><span class="token function">nextInt</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-		<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"请输入第二个正整数："</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-		<span class="token keyword">int</span> n <span class="token operator">=</span> scan<span class="token punctuation">.</span><span class="token function">nextInt</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-		<span class="token comment">//获取最大公约数</span>
-		<span class="token comment">//1.获取两个数中的较小值</span>
-		<span class="token keyword">int</span> min <span class="token operator">=</span> <span class="token punctuation">(</span>m <span class="token operator">&lt;=</span> n<span class="token punctuation">)</span><span class="token operator">?</span> m <span class="token operator">:</span> n<span class="token punctuation">;</span>
-		<span class="token comment">//2.遍历</span>
-		<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> min<span class="token punctuation">;</span>i <span class="token operator">&gt;=</span> <span class="token number">1</span> <span class="token punctuation">;</span>i<span class="token operator">--</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-			<span class="token keyword">if</span><span class="token punctuation">(</span>m <span class="token operator">%</span> i <span class="token operator">==</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> n <span class="token operator">%</span> i <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-				<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"最大公约数为："</span> <span class="token operator">+</span> i<span class="token punctuation">)</span><span class="token punctuation">;</span>
-				<span class="token keyword">break</span><span class="token punctuation">;</span><span class="token comment">//一旦在循环中执行到break，就跳出循环</span>
-			<span class="token punctuation">}</span>
-		<span class="token punctuation">}</span>
-		<span class="token comment">//获取最小公倍数</span>
-		<span class="token comment">//1.获取两个数中的较大值</span>
-		<span class="token keyword">int</span> max <span class="token operator">=</span> <span class="token punctuation">(</span>m <span class="token operator">&gt;=</span> n<span class="token punctuation">)</span><span class="token operator">?</span> m <span class="token operator">:</span> n<span class="token punctuation">;</span>
-		<span class="token comment">//2.遍历</span>
-		<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> max<span class="token punctuation">;</span>i <span class="token operator">&lt;=</span> m <span class="token operator">*</span> n<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-			<span class="token keyword">if</span><span class="token punctuation">(</span>i <span class="token operator">%</span> m <span class="token operator">==</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> i <span class="token operator">%</span> n <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-				<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"最小公倍数："</span> <span class="token operator">+</span> i<span class="token punctuation">)</span><span class="token punctuation">;</span>
-				<span class="token keyword">break</span><span class="token punctuation">;</span>
-			<span class="token punctuation">}</span>
-		<span class="token punctuation">}</span>
-	<span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
+*/
+import java.util.Scanner;
+class ForTest{
+	public static void main(String[] args){
+		Scanner scan = new Scanner(System.in);
+		System.out.println("请输入第一个正整数：");
+		int m = scan.nextInt();
+		System.out.println("请输入第二个正整数：");
+		int n = scan.nextInt();
+		//获取最大公约数
+		//1.获取两个数中的较小值
+		int min = (m &lt;= n)? m : n;
+		//2.遍历
+		for(int i = min;i &gt;= 1 ;i--){
+			if(m % i == 0 &amp;&amp; n % i == 0){
+				System.out.println("最大公约数为：" + i);
+				break;//一旦在循环中执行到break，就跳出循环
+			}
+		}
+		//获取最小公倍数
+		//1.获取两个数中的较大值
+		int max = (m &gt;= n)? m : n;
+		//2.遍历
+		for(int i = max;i &lt;= m * n;i++){
+			if(i % m == 0 &amp;&amp; i % n == 0){
+				System.out.println("最小公倍数：" + i);
+				break;
+			}
+		}
+	}
+}
 </code></pre>
 <h5 id="while循环">while循环</h5>
 <p><img src="https://gitee.com/BeiHai-yu/xiaoxin-image/raw/master/images/20210903192112.png" alt="image-20210903192112831"></p>
@@ -625,7 +625,7 @@ for(①;②;④){
 <h5 id="do-while循环">do-while循环</h5>
 <p><img src="https://gitee.com/BeiHai-yu/xiaoxin-image/raw/master/images/20210903193947.png" alt="image-20210903193947082"></p>
 <h5 id="练习-2">练习</h5>
-<pre class="language-java" data-language="java"><code class="language-java"> <span class="token comment">/*
+<pre class="language-java" data-language="java"><code class="language-java"> /*
 题目：
 从键盘读入个数不确定的整数，并判断读入的正数和负数的个数，输入为0时结束程序。
 说明：
@@ -633,33 +633,33 @@ for(①;②;④){
 2. 结束循环有几种方式？
      方式一：循环条件部分返回false
 	 方式二：在循环体中，执行break
-*/</span>
-<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">Scanner</span><span class="token punctuation">;</span>
-<span class="token keyword">class</span> <span class="token class-name">ForWhileTest</span> <span class="token punctuation">{</span>
-	<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-		<span class="token class-name">Scanner</span> scan <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Scanner</span><span class="token punctuation">(</span><span class="token class-name">System</span><span class="token punctuation">.</span>in<span class="token punctuation">)</span><span class="token punctuation">;</span>
-		<span class="token keyword">int</span> positiveNumber <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span><span class="token comment">//记录正数的个数</span>
-		<span class="token keyword">int</span> negativeNumber <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span><span class="token comment">//记录负数的个数</span>
-		<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token punctuation">;</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token comment">//while(true){</span>
-			<span class="token keyword">int</span> number <span class="token operator">=</span> scan<span class="token punctuation">.</span><span class="token function">nextInt</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-			<span class="token comment">//判断number的正负情况</span>
-			<span class="token keyword">if</span><span class="token punctuation">(</span>number <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-				positiveNumber<span class="token operator">++</span><span class="token punctuation">;</span>
-			<span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>number <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-				negativeNumber<span class="token operator">++</span><span class="token punctuation">;</span>
-			<span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
-				<span class="token comment">//一旦执行break，跳出循环</span>
-				<span class="token keyword">break</span><span class="token punctuation">;</span>
-			<span class="token punctuation">}</span>
-		<span class="token punctuation">}</span>
-		<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"输入的正数个数为："</span> <span class="token operator">+</span> positiveNumber<span class="token punctuation">)</span><span class="token punctuation">;</span>
-		<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"输入的负数个数为："</span> <span class="token operator">+</span> negativeNumber<span class="token punctuation">)</span><span class="token punctuation">;</span>
-	<span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre>
+*/
+import java.util.Scanner;
+class ForWhileTest {
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		int positiveNumber = 0;//记录正数的个数
+		int negativeNumber = 0;//记录负数的个数
+		for(;;){//while(true){
+			int number = scan.nextInt();
+			//判断number的正负情况
+			if(number &gt; 0){
+				positiveNumber++;
+			}else if(number &lt; 0){
+				negativeNumber++;
+			}else{
+				//一旦执行break，跳出循环
+				break;
+			}
+		}
+		System.out.println("输入的正数个数为：" + positiveNumber);
+		System.out.println("输入的负数个数为：" + negativeNumber);
+	}
+}</code></pre>
 <h5 id="嵌套循环">嵌套循环</h5>
 <p><img src="https://gitee.com/BeiHai-yu/xiaoxin-image/raw/master/images/20210903201521.png" alt="image-20210903201521223"></p>
 <p>练习</p>
-<pre class="language-java" data-language="java"><code class="language-java"><span class="token comment">/*打印如下的图形
+<pre class="language-java" data-language="java"><code class="language-java">/*打印如下的图形
 	* 
    * * 
   * * * 
@@ -669,72 +669,72 @@ for(①;②;④){
   * * * 
    * * 
     * 
-*/</span>
-	<span class="token comment">// 上半部分</span>
-		<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">5</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-			<span class="token comment">// 输出“-”</span>
-			<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> <span class="token number">4</span> <span class="token operator">-</span> i<span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-				<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span><span class="token string">" "</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-			<span class="token punctuation">}</span>
-            			<span class="token comment">// 输出“* ”</span>
-			<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> k <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> k <span class="token operator">&lt;</span> i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span> k<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-				<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"* "</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-			<span class="token punctuation">}</span>
-			<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-		<span class="token punctuation">}</span>
-		<span class="token comment">// 下半部分</span>
-		<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">4</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-			<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-				<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span><span class="token string">" "</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-			<span class="token punctuation">}</span>
-			<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> k <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> k <span class="token operator">&lt;</span> <span class="token number">4</span> <span class="token operator">-</span> i<span class="token punctuation">;</span> k<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-				<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"* "</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-			<span class="token punctuation">}</span>
-			<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-		<span class="token punctuation">}</span></code></pre>
-<pre class="language-java" data-language="java"><code class="language-java"><span class="token comment">/*
+*/
+	// 上半部分
+		for (int i = 0; i &lt; 5; i++) {
+			// 输出“-”
+			for (int j = 0; j &lt; 4 - i; j++) {
+				System.out.print(" ");
+			}
+            			// 输出“* ”
+			for (int k = 0; k &lt; i + 1; k++) {
+				System.out.print("* ");
+			}
+			System.out.println();
+		}
+		// 下半部分
+		for (int i = 0; i &lt; 4; i++) {
+			for (int j = 0; j &lt; i + 1; j++) {
+				System.out.print(" ");
+			}
+			for (int k = 0; k &lt; 4 - i; k++) {
+				System.out.print("* ");
+			}
+			System.out.println();
+		}</code></pre>
+<pre class="language-java" data-language="java"><code class="language-java">/*
 嵌套循环的应用1：
 九九乘法表
 1 * 1 = 1
 2 * 1 = 2  2 * 2 = 4
 。。。
 9 * 1 = 9 。。。 9 * 9 = 81
-*/</span>
-<span class="token keyword">class</span> <span class="token class-name">NineNineTable</span> <span class="token punctuation">{</span>
-	<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-		<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>i <span class="token operator">&lt;=</span> <span class="token number">9</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-			<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>j <span class="token operator">&lt;=</span> i<span class="token punctuation">;</span>j<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-				<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span>i <span class="token operator">+</span> <span class="token string">" * "</span> <span class="token operator">+</span> j <span class="token operator">+</span> <span class="token string">" = "</span> <span class="token operator">+</span> <span class="token punctuation">(</span>i <span class="token operator">*</span> j<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"  "</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-			<span class="token punctuation">}</span>
-			<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-		<span class="token punctuation">}</span>
-	<span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre>
-<pre class="language-java" data-language="java"><code class="language-java"><span class="token comment">/*
+*/
+class NineNineTable {
+	public static void main(String[] args) {
+		for(int i = 1;i &lt;= 9;i++){
+			for(int j = 1;j &lt;= i;j++){
+				System.out.print(i + " * " + j + " = " + (i * j) + "  ");
+			}
+			System.out.println();
+		}
+	}
+}</code></pre>
+<pre class="language-java" data-language="java"><code class="language-java">/*
 100000以内的所有质数的输出。实现方式二
 质数：素数，只能被1和它本身整除的自然数。--&gt;从2开始，到这个数-1结束为止，都不能被这个数本身整除。
 对PrimeNumberTest.java文件中质数输出问题的优化
-*/</span>
-<span class="token keyword">class</span> <span class="token class-name">PrimeNumberTest2</span> <span class="token punctuation">{</span>
-	<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-		<span class="token keyword">int</span> count <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span><span class="token comment">//记录质数的个数</span>
-		<span class="token comment">//获取当前时间距离1970-01-01 00:00:00 的毫秒数</span>
-		<span class="token keyword">long</span> start <span class="token operator">=</span> <span class="token class-name">System</span><span class="token punctuation">.</span><span class="token function">currentTimeMillis</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-		label<span class="token operator">:</span><span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>i <span class="token operator">&lt;=</span> <span class="token number">100000</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token comment">//遍历100000以内的自然数</span>
-			<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>j <span class="token operator">&lt;=</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">sqrt</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>j<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token comment">//j:被i去除</span>
-				<span class="token keyword">if</span><span class="token punctuation">(</span>i <span class="token operator">%</span> j <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span> <span class="token comment">//i被j除尽</span>
-					<span class="token keyword">continue</span> label<span class="token punctuation">;</span>
-				<span class="token punctuation">}</span>
-			<span class="token punctuation">}</span>
-			<span class="token comment">//能执行到此步骤的，都是质数</span>
-			count<span class="token operator">++</span><span class="token punctuation">;</span>
-		<span class="token punctuation">}</span>
-		<span class="token comment">//获取当前时间距离1970-01-01 00:00:00 的毫秒数</span>
-		<span class="token keyword">long</span> end <span class="token operator">=</span> <span class="token class-name">System</span><span class="token punctuation">.</span><span class="token function">currentTimeMillis</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-		<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"质数的个数为："</span> <span class="token operator">+</span> count<span class="token punctuation">)</span><span class="token punctuation">;</span>
-		<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"所花费的时间为："</span> <span class="token operator">+</span> <span class="token punctuation">(</span>end <span class="token operator">-</span> start<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//17110 - 优化一：break:1546 - 优化二：13</span>
-	<span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre>
+*/
+class PrimeNumberTest2 {
+	public static void main(String[] args) {
+		int count = 0;//记录质数的个数
+		//获取当前时间距离1970-01-01 00:00:00 的毫秒数
+		long start = System.currentTimeMillis();
+		label:for(int i = 2;i &lt;= 100000;i++){//遍历100000以内的自然数
+			for(int j = 2;j &lt;= Math.sqrt(i);j++){//j:被i去除
+				if(i % j == 0){ //i被j除尽
+					continue label;
+				}
+			}
+			//能执行到此步骤的，都是质数
+			count++;
+		}
+		//获取当前时间距离1970-01-01 00:00:00 的毫秒数
+		long end = System.currentTimeMillis();
+		System.out.println("质数的个数为：" + count);
+		System.out.println("所花费的时间为：" + (end - start));//17110 - 优化一：break:1546 - 优化二：13
+	}
+}</code></pre>
 <h5 id="break、continue">break、continue</h5>
 <p>break和continue关键字的使用：</p>
 <table>
