@@ -1,0 +1,1338 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>笔记(1)---Spring项目学习(牛课网社区) | Xiaoxin's blog</title><meta name="keywords" content="Spring"><meta name="author" content="Xiaoxin,xiaoxinvvzzz@sina.com"><meta name="copyright" content="Xiaoxin"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Spring">
+<meta property="og:type" content="article">
+<meta property="og:title" content="笔记(1)---Spring项目学习(牛课网社区)">
+<meta property="og:url" content="http://beihai-yu.github.io/2021/10/14/spring/index.html">
+<meta property="og:site_name" content="Xiaoxin&#39;s blog">
+<meta property="og:description" content="Spring">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blog--image.oss-cn-shanghai.aliyuncs.com/images/20211014100952.jpg">
+<meta property="article:published_time" content="2021-10-14T02:13:05.389Z">
+<meta property="article:modified_time" content="2022-11-10T11:38:07.212Z">
+<meta property="article:author" content="Xiaoxin">
+<meta property="article:tag" content="Spring">
+<meta property="article:tag" content="tomcat">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog--image.oss-cn-shanghai.aliyuncs.com/images/20211014100952.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://beihai-yu.github.io/2021/10/14/spring/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="manifest" href="/img/pwa/manifest.json"/><meta name="msapplication-TileColor" content="#fff"/><link rel="apple-touch-icon" sizes="180x180" href="/img/pwa/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/img/pwa/32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/img/pwa/16.png"/><link rel="mask-icon" href="/img/pwa/safari-pinned-tab.svg" color="#5bbad5"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.5/dist/instantsearch.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.5/dist/instantsearch.min.js" defer></script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?a82b3e053b6bc9439eaf4231e417c839";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: {"appId":"W5G1WE34L0","apiKey":"c18025cce7127ec55d20a9b82b001a5a","indexName":"xin_search","hits":{"per_page":6},"languages":{"input_placeholder":"搜索文章","hits_empty":"找不到您查询的内容：${query}","hits_stats":"找到 ${hits} 条结果，用时 ${time} 毫秒"}},
+  localSearch: undefined,
+  translate: {"defaultEncoding":1,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"prismjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: Xiaoxin","link":"链接: ","source":"来源: Xiaoxin's blog","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#121212","position":"top-left"},
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '笔记(1)---Spring项目学习(牛课网社区)',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: true,
+  isToc: true,
+  postUpdate: '2022-11-10 19:38:07'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/gh/metowolf/MetingJS@1.2/dist/Meting.min.js"></script><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const fontSizeVal = saveToLocal.get('global-font-size')
+    if (fontSizeVal !== undefined) {
+      document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+    }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    document.addEventListener('pjax:complete', detectApple)})(window)</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/static-butterfly/dist/css/index.min.css"><style type="text/css">.app-refresh{position:fixed;top:-2.2rem;left:0;right:0;z-index:99999;padding:0 1rem;font-size:15px;height:2.2rem;transition:all .3s ease}.app-refresh-wrap{display:flex;color:#fff;height:100%;align-items:center;justify-content:center}.app-refresh-wrap a{color:#fff;text-decoration:underline;cursor:pointer}</style><meta name="generator" content="Hexo 5.4.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="Xiaoxin's blog" type="application/atom+xml">
+</head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://blog--image.oss-cn-shanghai.aliyuncs.com/images/20210803214122.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">18</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">10</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 娱乐</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/bangumis/"><i class="fa-fw fas fa-play-circle"></i><span> 番剧</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/books/"><i class="fa-fw fas fa-book"></i><span> 书单</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-image"></i><span> 相册</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://blog--image.oss-cn-shanghai.aliyuncs.com/images/20211014100952.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Xiaoxin's blog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 娱乐</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/bangumis/"><i class="fa-fw fas fa-play-circle"></i><span> 番剧</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/books/"><i class="fa-fw fas fa-book"></i><span> 书单</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-image"></i><span> 相册</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">笔记(1)---Spring项目学习(牛课网社区)<a class="post-edit-link" href="null_posts/Spring.md" title="编辑" target="_blank"><i class="fas fa-pencil-alt"></i></a></h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-10-14T02:13:05.389Z" title="发表于 2021-10-14 10:13:05">2021-10-14</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-11-10T11:38:07.212Z" title="更新于 2022-11-10 19:38:07">2022-11-10</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Spring/">Spring</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">4.2k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>15分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="笔记(1)---Spring项目学习(牛课网社区)"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span><span class="post-meta-separator">|</span><span class="post-meta-commentcount"><i class="far fa-comments fa-fw post-meta-icon"></i><span class="post-meta-label">评论数:</span><a href="/2021/10/14/spring/#post-comment" itemprop="discussionUrl"><span class="valine-comment-count" data-xid="/2021/10/14/spring/" itemprop="commentCount"></span></a></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1>Spring项目学习(牛课网社区)</h1>
+<p>选中属性，按alter+insert生成getterandsetter</p>
+<p>搜索全局文件，按atrl+shift+N</p>
+<h2 id="maven">maven</h2>
+<p>下载maven <a target="_blank" rel="noopener" href="http://maven.apache.org/download.cgi">http://maven.apache.org/download.cgi</a></p>
+<p>配置conf下的settings.xml</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210729172049175.png" alt="image-20210729172049175"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210417183900035.png" alt="image-20210417183900035"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210622214129419.png" alt="image-20210622214129419"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210417183758429.png" alt="image-20210417183758429"></p>
+<pre class="language-none"><code class="language-none">mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=my-app -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false
+
+mvn archetype:generate -DgroupId=com.nowcoder.mavendemo1 -DartifactId=mavendemo1 -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false</code></pre>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210417183722054.png" alt=""></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210417183458991.png" alt="image-20210417183458991"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210417184224428.png" alt="image-20210417184224428"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210417184301278.png" alt="image-20210417184301278"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210417184338695.png" alt="image-20210417184338695"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210417185621848.png" alt="image-20210417185621848"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210417185904782.png" alt="image-20210417185904782"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210417190139348.png" alt="image-20210417190139348"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210417190250495.png" alt="image-20210417190250495"></p>
+<p><a target="_blank" rel="noopener" href="https://mvnrepository.com/">https://mvnrepository.com/</a> 可以下载包的地方</p>
+<p>比如下载spring aspects</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210417225332723.png" alt="image-20210417225332723"></p>
+<p>添加</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210417225655864.png" alt="image-20210417225655864"></p>
+<h2 id="spring-initializr">spring initializr</h2>
+<p>用这个 <a target="_blank" rel="noopener" href="https://start.spring.io/">https://start.spring.io/</a>  可以更方便创建一个springboot项目，主要是可以直接下载多个以来包，不麻烦</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210417224652901.png" alt="image-20210417224652901"></p>
+<p>Springboot的jar里面带有一个tomcat</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210418172930390.png" alt="image-20210418172930390"></p>
+<h2 id="Spring">Spring</h2>
+<p>SpringFramework基石</p>
+<p>构建一切—Springboot构建项目</p>
+<p>协调一切—Springcloud微服务-拆成几个然后集成在一起------------------------------------本项目不用</p>
+<p>连接一切—spring cloud data flow数据集成的功能-------------------------------本项目不用</p>
+<p>Spring Security</p>
+<p>Spring AMQT消息队列</p>
+<p><strong>Spring Framework</strong></p>
+<p>Spring Core —管理一切</p>
+<p>​		- IoC–面向对象的管理的一种思想、AOP-- 面向界面的管理的一种思想</p>
+<p>Spring Data Access --管理数据库</p>
+<p>​		- Transactions–管理事务、Spring MyBatis</p>
+<p>Web Servlet —web开发</p>
+<p>​		- Spring MVC</p>
+<p>Integration —</p>
+<p>​		- Email、Scheduling、AMQP、Security</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210618185911104.png" alt="image-20210618185911104"></p>
+<p>controller处理浏览器的请求，在处理请求的过程中，会调用业务组件去处理当前的业务，然后业务组件回去调用dao去访问数据库。</p>
+<p>controller–&gt;调service–&gt;调dao</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210618185816122.png" alt="image-20210618185816122"></p>
+<img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210618191858913.png" alt="image-20210618191858913" style="zoom:25%;">
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210618191925985.png" alt="image-20210618191925985"></p>
+<h2 id="Mybatis">Mybatis</h2>
+<h3 id="mysql">mysql</h3>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210618212121032.png" alt="image-20210618212121032"></p>
+<p>将资料中的my.ini文件拉到mtsql安装路径，并内容修改</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210618212446752.png" alt="image-20210618212446752"></p>
+<p>将mysql的bin路径配置到系统的环境变量中的path中</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210618212543758.png" alt="image-20210618212543758"></p>
+<p>管理员身份cmd进入mysql的bin路径下，进行初始化</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210618214501841.png" alt="image-20210618214501841"></p>
+<p>任意路径下登录</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210618214705955.png" alt="image-20210618214705955"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210618215711372.png" alt="image-20210618215711372"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210618220433442.png" alt="image-20210618220433442"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210618220702264.png" alt="image-20210618220702264"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210618220913846.png" alt="image-20210618220913846"></p>
+<p>安装mysqlworkbench。。。</p>
+<h4 id="自己建数据库，表，以及向表中插如数据">自己建数据库，表，以及向表中插如数据</h4>
+<p><strong>命令行建表：</strong></p>
+<p>create database 数据库名称</p>
+<p>use 数据库名称</p>
+<p>create table user(</p>
+<p>​                      id int auto_increment not null primary key,</p>
+<p>​                      Lastname varchar(30),</p>
+<p>​                      Firstname varchar(30),</p>
+<p>​                      Address varchar(30),</p>
+<p>​                      City varchar(30)</p>
+<p>​                     );</p>
+<p>insert into persons(Lastname,Firstname,Address,City)  values  (“Adams”,“John”,“Oxford Street”,“London”);</p>
+<p>用workbench建数据库，表</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210810212722511.png" alt="image-20210810212722511"></p>
+<p>注意创建数据表时其列不可以为空，并且最好设置一个主键并为主键设置not null（非空）、auto increment（自动递增）属性</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210810213454450.png" alt="image-20210810213454450"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210619181642531.png" alt="image-20210619181642531"></p>
+<h3 id="mysql-connecter">mysql connecter</h3>
+<p>进入https://mvnrepository.com/，搜索mysql和mybatis</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210619182119967.png" alt="image-20210619182119967"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210619182159061.png" alt="image-20210619182159061"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210619182250256.png" alt="image-20210619182250256"></p>
+<h3 id="Mybatis-Spring-Boot-Starter">Mybatis Spring Boot Starter</h3>
+<p>如图</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210619190440739.png" alt="image-20210619190440739"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210619190515418.png" alt="image-20210619190515418"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210619194902377.png" alt="image-20210619194902377"></p>
+<p>在application.properties中增加数据源和mynatis的配置 （资料中获取）修改其中的配置</p>
+<p>映射文件的存放位置就是xml写sql文件的位置，通常放在resources下，建立mapper目录</p>
+<p>在com.nowcoder.community下创建一个实体类entity用以存放实体类的包，将来在这个包之下创建实体类用来封装某一张表的数据</p>
+<p>访问user表中的数据</p>
+<p>在entity下创建一个user类(类可以封装表里的数据，然后才好对他进行操作)，与user表对应</p>
+<p>要访问数据库，所以在dao层写一个组件，写一个名为UserMapper的接口，同时需要加一个注解@Mapper才能让Spring容器装配这个Bean</p>
+<p>要实现UserMapper的接口需要提供一个配置文件，配置文件里需要对每一个方法提供它所需要的sql，然后底层自动帮我们生成实现类。</p>
+<p>在resources的mapper路径下创建一个user-mapper.xml文件，文件结构模板可以从（<a target="_blank" rel="noopener" href="https://mybatis.org/mybatis-3/zh/getting-started.html%EF%BC%89%E6%89%BE%E5%88%B0">https://mybatis.org/mybatis-3/zh/getting-started.html）找到</a></p>
+<p>在测试类中新建一个类MapperTests对其进行测试，</p>
+<p>几个主要的文件</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210620161205192.png" alt="image-20210620161205192"></p>
+<h2 id="社区首页">社区首页</h2>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210620161519248.png" alt="image-20210620161519248"></p>
+<p>分页涉及到的代码页面</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210621162258729.png" alt="image-20210621162258729"></p>
+<h3 id="项目调试技巧之服务端断点调试">项目调试技巧之服务端断点调试</h3>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210621155335773.png" alt="image-20210621155335773"></p>
+<p>状态码含义：<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Status/500">https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Status/500</a></p>
+<p><strong>服务端断点调试：</strong></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210621160006296.png" alt="image-20210621160006296"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210621160044582.png" alt="image-20210621160044582"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210621160309609.png" alt="image-20210621160309609"></p>
+<p>回到后台程序</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210621160359607.png" alt="image-20210621160359607"></p>
+<p>一些快捷键：按F8执：行下一行；按F7：在这一行进入当前行的方法内部执行</p>
+<h3 id="项目调试技巧之客户断点调试">项目调试技巧之客户断点调试</h3>
+<p><strong>客户端的调试技巧</strong></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210621161631957.png" alt="image-20210621161631957"></p>
+<p>按F10进入下一行，安F11进入方法，执行到底F8</p>
+<h3 id="项目调试技巧之日志">项目调试技巧之日志</h3>
+<p><strong>日志</strong></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210621162600805.png" alt="image-20210621162600805"></p>
+<p>将日志存到文件中：</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210621164646406.png" alt="image-20210621164646406"></p>
+<p>要使不同类型的日志错误存在不同的文件中</p>
+<p>将素材中的logback-spring.xml复制到resources中</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210621165623778.png" alt="image-20210621165623778"></p>
+<h2 id="git">git</h2>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210621170943331.png" alt="image-20210621170943331"></p>
+<h3 id="如何提交代码">如何提交代码</h3>
+<p><strong>代码–&gt;本地仓库–&gt;远程仓库</strong></p>
+<p><a target="_blank" rel="noopener" href="https://git-scm.com/book/zh/v2/%E8%B5%B7%E6%AD%A5-%E5%AE%89%E8%A3%85-Git">https://git-scm.com/book/zh/v2/起步-安装-Git</a></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210621170925635.png" alt="image-20210621170925635"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210621171321008.png" alt="image-20210621171321008"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210621171512752.png" alt="image-20210621171512752"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210621171656904.png" alt="image-20210621171656904"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210621171917263.png" alt="image-20210621171917263"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210621172451733.png" alt="image-20210621172451733"></p>
+<p>要上传到远程仓库，git使用ssl进行传输，所以我们需要配置密钥，使用命令ssh-keygen -t rsa -C “<a href="mailto:1634586466@qq.com">1634586466@qq.com</a>”，然后一直enter</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210621192515345.png" alt="image-20210621192515345"></p>
+<p>将这个路径中的文件中的内容配到到远程仓库，这里我们使用牛课网的远程仓库</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210621192741653.png" alt="image-20210621192741653"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210621193601896.png" alt="image-20210621193601896"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210621193706127.png" alt="image-20210621193706127"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210621193728119.png" alt="image-20210621193728119"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210621193848017.png" alt="image-20210621193848017"></p>
+<p>在本地与远程仓库关联</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210621201242759.png" alt="image-20210621201242759"></p>
+<p>上传项目，注意此处要输入牛课网的账户密码，特别是要在项目页面先修改一下密码</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210621202607199.png" alt="image-20210621202607199"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210621202451815.png" alt="image-20210621202451815"></p>
+<p>下载某个仓库</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210621204038048.png" alt="image-20210621204038048"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210621204206167.png" alt="image-20210621204206167"></p>
+<h3 id="Idea中如何提交">Idea中如何提交</h3>
+<p>file–&gt;settings–&gt;Version Control–&gt;Git</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210621205224205.png" alt="image-20210621205224205"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210621205525018.png" alt="image-20210621205525018"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210621210449163.png" alt="image-20210621210449163"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210621211132057.png" alt="image-20210621211132057"></p>
+<p>将提交到本地仓库的代码提交到远程仓库：先到牛课网创建一个名为community的仓库，然后复制已有项目的连接(<a target="_blank" rel="noopener" href="https://git.nowcoder.com/642983856/community.git">https://git.nowcoder.com/642983856/community.git</a>)，到idea中进行如下操作</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210621211359670.png" alt="image-20210621211359670"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210621211518753.png" alt="image-20210621211518753"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20211012005103956.png" alt="image-20211012005103956"></p>
+<p>push，然后输入账号密码就好了</p>
+<h2 id="登录模块">登录模块</h2>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210621212245100.png" alt="image-20210621212245100"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210621212309088.png" alt="image-20210621212309088"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210621214406759.png" alt="image-20210621214406759"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210621214442268.png" alt="image-20210621214442268"></p>
+<p>注意password设置为授权码而不是登录密码</p>
+<p><img src="C:%5CUsers%5C%E6%88%91%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210621232639503.png" alt="image-20210621232639503"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210622093953740.png" alt="image-20210622093953740"></p>
+<h2 id="开发注册模块">开发注册模块</h2>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210622100127231.png" alt="image-20210622100127231"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210622100208220.png" alt="image-20210622100208220"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210622170347188.png" alt="image-20210622170347188"></p>
+<h2 id="登录模块-2">登录模块</h2>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210622170411567.png" alt="image-20210622170411567"></p>
+<h3 id="cookie">cookie</h3>
+<p>存密码不安全</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210622234319163.png" alt="image-20210622234319163"></p>
+<h3 id="session">session</h3>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210622234121949.png" alt="image-20210622234121949"></p>
+<p>有多台服务器的情况</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210622235944846.png" alt="image-20210622235944846"></p>
+<h2 id="验证码">验证码</h2>
+<p>登录功能</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210705204727860.png" alt="image-20210705204727860"></p>
+<h1>111</h1>
+<p>顺序：</p>
+<p>entity–详单与数据库属性声明，dao—实际操作数据库，可在其中直接写语句操作，也可以在另外的.xml文件中进行操作</p>
+<p>service–具体处理过程中的一些业务，比如判断，空值这些。</p>
+<p>controller–具体的访问路径，处理页面的请求，返回页面的请求</p>
+<h2 id="显示登录信息">显示登录信息</h2>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210707105811195.png" alt="image-20210707105811195"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210707162934900.png" alt="image-20210707162934900"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210707165942107.png" alt="image-20210707165942107"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210707171921454.png" alt="image-20210707171921454"></p>
+<h2 id="设置头像">设置头像</h2>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210707171957172.png" alt="image-20210707171957172"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210707192559759.png" alt="image-20210707192559759"></p>
+<h2 id="检查登录状态">检查登录状态</h2>
+<p>(未登录不能进入某些页面)</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210707193023365.png" alt="image-20210707193023365"></p>
+<p>自定义注解</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210707200859342.png" alt="image-20210707200859342"></p>
+<h1>开发社区核心功能</h1>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210707201155704.png" alt=""></p>
+<p>原理图</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210707202551799.png" alt=""></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210708090945893.png" alt=""></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/Snipaste_2021-10-11_23-53-37.png" alt=""></p>
+<h2 id="发布帖子">发布帖子</h2>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/Snipaste_2021-10-11_23-55-35.png" alt=""></p>
+<p>测试</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210708095926547.png" alt=""></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210708105316652.png" alt="image-20210708105316652"></p>
+<h2 id="显示帖子详情">显示帖子详情</h2>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210708172631315.png" alt="image-20210708172631315"></p>
+<h2 id="事务管理">事务管理</h2>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210708172601961.png" alt="image-20210708172601961"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210708172948843.png" alt="image-20210708172948843"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210708173916235.png" alt="image-20210708173916235"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210708173930721.png" alt="image-20210708173930721"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210708173948259.png" alt="image-20210708173948259"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210708174014066.png" alt="image-20210708174014066"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210708174829093.png" alt="image-20210708174829093"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210708175706917.png" alt="image-20210708175706917"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210708175732406.png" alt="image-20210708175732406"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210708175812294.png" alt="image-20210708175812294"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210709091517332.png" alt="image-20210709091517332"></p>
+<h2 id="添加评论">添加评论</h2>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210709091413414.png" alt="image-20210709091413414"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210709103815762.png" alt="image-20210709103815762"></p>
+<h2 id="私信列表">私信列表</h2>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210709103923302.png" alt="image-20210709103923302"></p>
+<h2 id="image-20210712091657723"><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210712091657723.png" alt="image-20210712091657723"></h2>
+<h2 id="私信详情">私信详情</h2>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210712091720788.png" alt="image-20210712091720788"></p>
+<p>发送私信</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210712091738652.png" alt="image-20210712091738652"></p>
+<h2 id="统一异常处理">统一异常处理</h2>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210719165101603.png" alt="image-20210719165101603"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/Snipaste_2021-10-12_00-21-49.png" alt=""></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/Snipaste_2021-10-12_00-22-11.png" alt=""></p>
+<h2 id="统一记录日志（主要记录service组件前的行为）">统一记录日志（主要记录service组件前的行为）</h2>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210712092653872.png" alt="image-20210712092653872"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210712092713557.png" alt="image-20210712092713557"></p>
+<p>目标对象—方便代码—方便组建—poinycut声明到底要在哪里切入</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210712093144548.png" alt="image-20210712093144548"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210712093309530.png" alt="image-20210712093309530"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210712100811610.png" alt="image-20210712100811610"></p>
+<h2 id="Redis">Redis</h2>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210712100849592.png" alt="image-20210712100849592"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210712100905410.png" alt="image-20210712100905410"></p>
+<p>此路径下下载redis <a target="_blank" rel="noopener" href="https://github.com/microsoftarchive/redis/releases/tag/win-3.2.100">https://github.com/microsoftarchive/redis/releases/tag/win-3.2.100</a></p>
+<hr>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210712102024375.png" alt="image-20210712102024375"></p>
+<p>下载在D:\work\redis路径下之后配置环境变量</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210712102152622.png" alt="image-20210712102152622"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210712105426388.png" alt="image-20210712105426388"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210712155316081.png" alt="image-20210712155316081"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210712174200749.png" alt="image-20210712174200749"></p>
+<h2 id="点赞功能">点赞功能</h2>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210712221929227.png" alt="image-20210712221929227"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210712221900075.png" alt="image-20210712221900075"></p>
+<h2 id="我收到的赞">我收到的赞</h2>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210713100007986.png" alt="image-20210713100007986"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210713095941359.png" alt=""></p>
+<p>关注，取消关注</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210713100031719.png" alt="image-20210713100031719"></p>
+<h2 id="likeService处没有达到视频效果自己改的代码（redis的序列化配置错误导致-已解决）">likeService处没有达到视频效果自己改的代码（redis的序列化配置错误导致-已解决）</h2>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210713153636026.png" alt="image-20210713153636026"></p>
+<p>…</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210713170902636.png" alt="image-20210713170902636"></p>
+<h2 id="关注与取消关注">关注与取消关注</h2>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210714091042066.png" alt="image-20210714091042066"></p>
+<h2 id="关注列表和粉丝列表">关注列表和粉丝列表</h2>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210714102732548.png" alt="image-20210714102732548"></p>
+<h2 id="优化登录">优化登录</h2>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210714102902712.png" alt="image-20210714102902712"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210714192423265.png" alt="image-20210714192423265"></p>
+<h2 id="巨坑发现：自己跟着设计的redis配置居然全部是string类型的序列化（已改为json）">巨坑发现：自己跟着设计的redis配置居然全部是string类型的序列化（已改为json）</h2>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210714185204403.png" alt="image-20210714185204403"></p>
+<h2 id="Kafka">Kafka</h2>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210714192508720.png" alt="image-20210714192508720"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210714212417176.png" alt="image-20210714212417176"></p>
+<p>下载</p>
+<p><a target="_blank" rel="noopener" href="http://kafka.apache.org/downloads">http://kafka.apache.org/downloads</a></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210714214126369.png" alt="image-20210714214126369"></p>
+<h3 id="1-配置">1.配置</h3>
+<p>配置zookeeper存放数据的位置</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210714214422639.png" alt="image-20210714214422639"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210714214400609.png" alt="image-20210714214400609"></p>
+<p>配置日志存放路径</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210714214608971.png" alt="image-20210714214608971"></p>
+<p><strong><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210714214543302.png" alt="image-20210714214543302"></strong></p>
+<h3 id="2-启动1">2.启动1</h3>
+<p>win+r -&gt;cmd进入d盘下   bin\windows\zookeeper-server-start.bat config\zookeeper.properties</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210714221625536.png" alt="image-20210714221625536"></p>
+<p>此处遇见问题<strong>此时不应有 \Java\jdk-15\lib\dt.jar</strong></p>
+<p>**解决：**将java安装路径切到没有空格的地方</p>
+<p>先找到java安装路径：win+r -&gt;cmd	输入   java -verbose</p>
+<p>原有：</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210714221914703.png" alt="image-20210714221914703"></p>
+<p>现在：</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210714221805511.png" alt="image-20210714221805511"></p>
+<p>然后在环境变量中将JAVA_HOME改为现在的这个路径即可</p>
+<h3 id="2-启动2">2.启动2</h3>
+<p>win+r -&gt;cmd进入d盘下    bin\windows\kafka-server-start.bat config\server.properties</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210714223331099.png" alt="image-20210714223331099"></p>
+<p>此处遇到问题：'<strong>wmic’ 不是内部或外部命令，也不是可运行的程序或批处理文件。</strong></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210714222547493.png" alt="image-20210714222547493"></p>
+<p>解决：</p>
+<p>在C:盘下找到wbem文件夹，且里面包含WMIC.exe，将其添加到系统变量path中去。<br>
+比如我的路径是：“C:\Windows\System32\wbem”，在系统变量path中新建该路径。就可以正常启动Kafka了</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210714223012493.png" alt="image-20210714223012493"></p>
+<p>成功！</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210714223146256.png" alt="image-20210714223146256"></p>
+<h3 id="3-建立会话-生产者">3.建立会话-生产者</h3>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210714224757945.png" alt="image-20210714224757945"></p>
+<h3 id="3-建立会话-消费者">3.建立会话-消费者</h3>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210714224832717.png" alt="image-20210714224832717"></p>
+<h3 id="4-spring整合kafka">4.spring整合kafka</h3>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210715091316446.png" alt="image-20210715091316446"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210715093134919.png" alt="image-20210715093134919"></p>
+<h2 id="发送系统通知">发送系统通知</h2>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210715093158562.png" alt="image-20210715093158562"></p>
+<p>评论-额外增加了帖子评论的实体查询功能</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210715112234998.png" alt="image-20210715112234998"></p>
+<p>点赞-原有方法上增加了postId参数</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210715113703828.png" alt="image-20210715113703828"></p>
+<p>评论</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210715113303039.png" alt="image-20210715113303039"></p>
+<h2 id="解决kafka启动中出现锁死的现象">解决kafka启动中出现锁死的现象</h2>
+<p>直接删除kafka-logs文件夹即可</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210715114111149.png" alt="image-20210715114111149"></p>
+<h2 id="显示系统通知">显示系统通知</h2>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210715230119984.png" alt="image-20210715230119984"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210715230110031.png" alt="image-20210715230110031"></p>
+<p>拦截显示消息的未读数量</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210715230656424.png" alt="image-20210715230656424"></p>
+<h2 id="Elasticsearch">Elasticsearch</h2>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210715230740136.png" alt="image-20210715230740136"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210715230828406.png" alt="image-20210715230828406"></p>
+<h3 id="下载">下载</h3>
+<p><a target="_blank" rel="noopener" href="https://www.elastic.co/cn/downloads/past-releases/elasticsearch-6-4-3">https://www.elastic.co/cn/downloads/past-releases/elasticsearch-6-4-3</a></p>
+<p><img src="C:%5CUsers%5CMZSH%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210715232236938.png" alt="image-20210715232236938"></p>
+<h3 id="配置">配置</h3>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210715232836591.png" alt="image-20210715232836591"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210715232803591.png" alt="image-20210715232803591"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210716000207214.png" alt="image-20210716000207214"></p>
+<p>配置环境变量</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210715233032372.png" alt="image-20210715233032372"></p>
+<p>由于Elasticsearch只支持中文的分词，所以需要安装中文分词插件，下载https://github.com/medcl/elasticsearch-analysis-ik/releases/tag/v6.4.3</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210715234219686.png" alt="image-20210715234219686"></p>
+<p>将其解压到这个路径下</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210715234059611.png" alt="image-20210715234059611"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210715234856439.png" alt="image-20210715234856439"></p>
+<p>下载postman</p>
+<p>启动Elasticsearch</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210715235105127.png" alt="image-20210715235105127"></p>
+<p>配置之后启动一直闪退，已解决，方法载于csdn</p>
+<h3 id="查看状态">查看状态</h3>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210717103247001.png" alt="image-20210717103247001"></p>
+<h3 id="Spring中注入elasticsearch">Spring中注入elasticsearch</h3>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210717105543610.png" alt="image-20210717105543610"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210717105950396.png" alt="image-20210717105950396"></p>
+<p>解决elasticsearch和redis都基于netty的冲突（底层）</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210717111417457.png" alt="image-20210717111417457"></p>
+<p>Spring中的elasticsearch在整合项目时，会自动把实体类中数据和elasticsearch的数据做一个映射，所以做一个配置@Document</p>
+<h2 id="SpringSecurity">SpringSecurity</h2>
+<p><strong><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210719090031789.png" alt="image-20210719090031789"></strong></p>
+<p>CSRF攻击</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210718173330172.png" alt="image-20210718173330172"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210720191814321.png" alt="image-20210720191814321"></p>
+<h2 id="置顶，加精，删除">置顶，加精，删除</h2>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210720221743561.png" alt="image-20210720221743561"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210720222305609.png" alt="image-20210720222305609"></p>
+<h2 id="redis高级数据类型（网站数据统计）">redis高级数据类型（网站数据统计）</h2>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210720222327240.png" alt="image-20210720222327240"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210720224815452.png" alt="image-20210720224815452"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210720230044656.png" alt="image-20210720230044656"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210721110332842.png" alt="image-20210721110332842"></p>
+<h2 id="任务执行和调度">任务执行和调度</h2>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210721151401376.png" alt="image-20210721151401376"></p>
+<p>测试：</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210721175817365.png" alt="image-20210721175817365"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210721190036043.png" alt="image-20210721190036043"></p>
+<h2 id="热帖排行">热帖排行</h2>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210721213958491.png" alt="image-20210721213958491"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210721214026071.png" alt="image-20210721214026071"></p>
+<h2 id="生成长图">生成长图</h2>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210721214218104.png" alt="image-20210721214218104"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210721215004222.png" alt="image-20210721215004222"></p>
+<p>配置环境</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210721214736991.png" alt="image-20210721214736991"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210721215532708.png" alt="image-20210721215532708"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210722160553589.png" alt="image-20210722160553589"></p>
+<p>将文件上传至云服务器</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210722162146442.png" alt="image-20210722162146442"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210722201124420.png" alt="image-20210722201124420"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210722220558899.png" alt="image-20210722220558899"></p>
+<h2 id="优化网站性能">优化网站性能</h2>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210722221223440.png" alt="image-20210722221223440"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210722221424267.png" alt="image-20210722221424267"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210722221845978.png" alt="image-20210722221845978"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210723173741748.png" alt="image-20210723173741748"></p>
+<h3 id="性能测试工具jmeter">性能测试工具jmeter</h3>
+<p><a target="_blank" rel="noopener" href="http://xn--jmeter-hp7iw185b.apache.org">下载jmeter.apache.org</a></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210723171554685.png" alt="image-20210723171554685"></p>
+<p>测试配置</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210723171938590.png" alt="image-20210723171938590"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210723171949711.png" alt="image-20210723171949711"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210723171918209.png" alt="image-20210723171918209"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210723171847606.png" alt="image-20210723171847606"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210723172025696.png" alt="image-20210723172025696"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210723172139453.png" alt="image-20210723172139453"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210723172234044.png" alt="image-20210723172234044"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210723172404599.png" alt="image-20210723172404599"></p>
+<p>得到结果</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210723172844398.png" alt="image-20210723172844398"></p>
+<p>清除结果</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210723172823958.png" alt="image-20210723172823958"></p>
+<p>打开注释掉的缓存中取数据的代码</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210723173137563.png" alt="image-20210723173137563"></p>
+<p>再测试，性能变好</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210723173058736.png" alt="image-20210723173058736"></p>
+<h2 id="单元测试">单元测试</h2>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210723174051952.png" alt="image-20210723174051952"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210723193717361.png" alt="image-20210723193717361"></p>
+<h2 id="项目监控">项目监控</h2>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210723193804485.png" alt="image-20210723193804485"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210723194001435.png" alt="image-20210723194001435"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210723195815289.png" alt="image-20210723195815289"></p>
+<h2 id="项目部署">项目部署</h2>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210723200046399.png" alt="image-20210723200046399"></p>
+<h3 id="安装putty">安装putty</h3>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210723201548186.png" alt="image-20210723201548186"></p>
+<h3 id="下载mysql的yum仓库">下载mysql的yum仓库</h3>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210723213645838.png" alt="image-20210723213645838"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210723232357373.png" alt="image-20210723232357373"></p>
+<p>有些不支持yum安装的，取官网下载针对linux安装包，后缀是tar.gz的安装包</p>
+<h3 id="下载maven">下载maven</h3>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210723232311148.png" alt="image-20210723232311148"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210723232429117.png" alt="image-20210723232429117"></p>
+<h3 id="下载kafka">下载kafka</h3>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210723232625080.png" alt="image-20210723232625080"></p>
+<p>点击进入</p>
+<p><strong><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210726164925116.png" alt="image-20210726164925116"></strong></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210723232556201.png" alt="image-20210723232556201"></p>
+<h3 id="下载tomcat">下载tomcat</h3>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210723232053251.png" alt="image-20210723232053251"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210723232246653.png" alt="image-20210723232246653"></p>
+<h3 id="下载es">下载es</h3>
+<p>同样的方式</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210726171226161.png" alt="image-20210726171226161"></p>
+<h3 id="上传本地文件到服务器">上传本地文件到服务器</h3>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210726161402760.png" alt="image-20210726161402760"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210723231923568.png" alt="image-20210723231923568"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210723231836037.png" alt="image-20210723231836037"></p>
+<h3 id="下载jre">下载jre</h3>
+<p>查看java版本</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210725151917703.png" alt="image-20210725151917703"></p>
+<p>下载</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210725151954699.png" alt="image-20210725151954699"></p>
+<h3 id="解压maven到opt">解压maven到opt</h3>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210725154128922.png" alt="image-20210725154128922"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210725154212605.png" alt="image-20210725154212605"></p>
+<p>进入这个路径配置环境变量，然后按insert，进入编辑模式</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210725154227729.png" alt="image-20210725154227729"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210725193431232.png" alt="image-20210725193431232"></p>
+<p>然后按esc输入:wq保存并推出</p>
+<p>然后source /etc/profile使其生效</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210725194543393.png" alt="image-20210725194543393"></p>
+<p>找到本地settings.xml文件中的maven线上资源</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210725194652886.png" alt="image-20210725194652886"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210725194630656.png" alt="image-20210725194630656"></p>
+<h3 id="解压mysql">解压mysql</h3>
+<p>先看一下有多少musql的版本，有很少</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210725195413386.png" alt="image-20210725195413386"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210725195124616.png" alt="image-20210725195124616"></p>
+<p>看一下mysql的版本，有很多</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210725195308880.png" alt="image-20210725195308880"></p>
+<p>安装</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210725200013718.png" alt="image-20210725200013718"></p>
+<p>启动mysql，发现问题（由于之前在宝塔安装了mysql5，导致问题，已通过卸载两个重新安装解决）</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210725201709043.png" alt="image-20210725201709043"></p>
+<p>启动mysql，成功：</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210726155815403.png" alt="image-20210726155815403"></p>
+<p>从mysql安装的日志文件中搜索初始化的默认密码</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210726160330147.png" alt="image-20210726160330147"></p>
+<h3 id="将表导入数据库">将表导入数据库</h3>
+<p>解压上传上来的文件，unzip必须对应zip后缀</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210726161603282.png" alt="image-20210726161603282"></p>
+<p>建库，导三个表</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210726162048027.png" alt="image-20210726162048027"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210726162122205.png" alt="image-20210726162122205"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210726162135493.png" alt="image-20210726162135493"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210726162146745.png" alt="image-20210726162146745"></p>
+<p>将路径里面带localhost这个词的头像路径换为线上的</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210726162900289.png" alt="image-20210726162900289"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210726162842960.png" alt="image-20210726162842960"></p>
+<h3 id="安装redis">安装redis</h3>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210726163103269.png" alt="image-20210726163103269"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210726163303417.png" alt="image-20210726163303417"></p>
+<h3 id="解压安装kafka">解压安装kafka</h3>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210726164855002.png" alt="image-20210726164855002"></p>
+<p>查看zookeeper.properties和server.properties的配置是否符合规范</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210726165254604.png" alt="image-20210726165254604"></p>
+<p>到kafka主路径下</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210726165636271.png" alt="image-20210726165636271"></p>
+<p>已后台的方式启动kafka</p>
+<p>bin/zookeeper-server-start.sh -daemon config/zookeeper.properties</p>
+<p>nohup bin/kafka-server-start.sh config/server.properties 1&gt;/dev/null 2&gt;&amp;1 &amp;</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210726170017368.png" alt="image-20210726170017368"></p>
+<p>查看主题</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210726170454518.png" alt="image-20210726170454518"></p>
+<h3 id="安装es">安装es</h3>
+<p>跟上面同样的方式解压</p>
+<p>解压分词插件到es安装路径下</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210726170730121.png" alt="image-20210726170730121"></p>
+<p>配置文件elasticsearch.yml和jvm.options</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210726171445719.png" alt="image-20210726171445719"></p>
+<p>不能用root启动，创建一个新的用户</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210726172137166.png" alt="image-20210726172137166"></p>
+<h3 id="安装wkhtmltopdf">安装wkhtmltopdf</h3>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210726172424011.png" alt="image-20210726172424011"></p>
+<p>下载小型的GUI服务器</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210726172630816.png" alt="image-20210726172630816"></p>
+<p>xvfb-run --server-args=“-screen 0, 1024×768×24” wkhtmltoimage <a target="_blank" rel="noopener" href="https://baidu.com">https://baidu.com</a> 1.png</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210726201942507.png" alt="image-20210726201942507"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210726201426523.png" alt="image-20210726201426523"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210726202049768.png" alt="image-20210726202049768"></p>
+<h3 id="解压安装tomcat">解压安装tomcat</h3>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210726202351267.png" alt="image-20210726202351267"></p>
+<p>给tomcat配置环境变量</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210726202842531.png" alt="image-20210726202842531"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210726202714732.png" alt="image-20210726202714732"></p>
+<h3 id="解压安装nginx">解压安装nginx</h3>
+<p>到/usr/loca路径下执行wget <a target="_blank" rel="noopener" href="https://nginx.org/download/nginx-1.14.0.tar.gz">https://nginx.org/download/nginx-1.14.0.tar.gz</a></p>
+<p>然后</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210727160001215.png" alt="image-20210727160001215"></p>
+<p>解压之后</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210727160117439.png" alt="image-20210727160117439"></p>
+<p>然后</p>
+<p>make</p>
+<p>make install</p>
+<p>配置文件</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210727160226312.png" alt="image-20210727160226312"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210727160313950.png" alt="image-20210727160313950"></p>
+<p>保存退出之后启动</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210727160414526.png" alt="image-20210727160414526"></p>
+<h3 id="项目修改打包">项目修改打包</h3>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210727160931990.png" alt="image-20210727160931990"></p>
+<p>先把tomcat关了</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210727161202899.png" alt="image-20210727161202899"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210727161343556.png" alt="image-20210727161343556"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210727172817383.png" alt="image-20210727172817383"></p>
+<p>回到项目修改</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210727161505850.png" alt="image-20210727161505850"></p>
+<p>global.js中</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210727161738337.png" alt="image-20210727161738337"></p>
+<p>homecontroller中</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210727162251962.png" alt="image-20210727162251962"></p>
+<p>打包格式和命名修改</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210727163838701.png" alt="image-20210727163838701"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210727163858094.png" alt="image-20210727163858094"></p>
+<p>配置修改</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210727163738462.png" alt="image-20210727163738462"></p>
+<p>新建一个CommunityServletInitializer类</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210727164742689.png" alt="image-20210727164742689"></p>
+<p>去掉target，减小打包的大小</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210727164537894.png" alt="image-20210727164537894"></p>
+<h3 id="打包到服务器">打包到服务器</h3>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210727165325147.png" alt="image-20210727165325147"></p>
+<p>解压</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210727165646680.png" alt="image-20210727165646680"></p>
+<p>到community路径下</p>
+<p>mvn clean package -Dmaven.test.skip=true</p>
+<p>把测试类全部忽略掉，同时会下载依赖</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210727170842405.png" alt="image-20210727170842405"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210727170810415.png" alt="image-20210727170810415"></p>
+<p>mv ROOT.war /opt/apache-tomcat-9.0.50/webapps/</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210727171313224.png" alt="image-20210727171313224"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20211012010413817.png" alt="image-20211012010413817"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210727173931812.png" alt="image-20210727173931812"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210727174051180.png" alt="image-20210727174051180"></p>
+<h3 id="遇到的一些error和waining">遇到的一些error和waining</h3>
+<h4 id="Job-for-mysqld-service-failed-because-the-control-process-exited-with-error">Job for mysqld.service failed because the control process exited with error</h4>
+<p>由于之前安装了mysql一直不知道，安装了多个数据库</p>
+<h4 id="gzip-stdin-not-in-gzip-format-tar-Child-returned-status-1-tar-Error-is-not-recoverable-exiting-now">gzip: stdin: not in gzip format tar: Child returned status 1 tar: Error is not recoverable: exiting now</h4>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210728111509437.png" alt="image-20210728111509437"></p>
+<h4 id="warning：The-web-application-created-a-ThreadLocal-with-key">warning：The web application created a ThreadLocal with key</h4>
+<p>注释掉tomcat的conf中的server.xml文件中</p>
+<pre class="language-none"><code class="language-none">&lt;!-- &lt;Listener className="org.apache.catalina.core.JreMemoryLeakPreventionListener"/&gt; --&gt;</code></pre>
+<h3 id="服务器部署相关">服务器部署相关</h3>
+<h4 id="一些命令：">一些命令：</h4>
+<p>ll	查看当前文件夹下的文件目录</p>
+<p>pwd	查看当前的文件路径</p>
+<p>cd … 		返回上一层目录</p>
+<p>cd /		返回到根路径</p>
+<h4 id="通过xshell改变root用户的密码"><strong>通过xshell改变root用户的密码</strong></h4>
+<p>先打开xshell,输入passwd,记住是passwd 不是password</p>
+<h4 id="查看Mysql的日志">查看Mysql的日志</h4>
+<p>/usr/sbin/mysqld</p>
+<h4 id="完全卸载mysql">完全卸载mysql</h4>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210726154743418.png" alt="image-20210726154743418"></p>
+<h4 id="卸载nginx的方式">卸载nginx的方式</h4>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210728110934756.png" alt="image-20210728110934756"></p>
+<h4 id="rm-rf-文件名">rm -rf + 文件名</h4>
+<p>​	—该路径下删除某文件</p>
+<h4 id="无法通过8080访问tomcat">无法通过8080访问tomcat</h4>
+<p>----把8080 8005 8009端口都打开</p>
+<h4 id="重启tomcat">重启tomcat</h4>
+<p>—找到<img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210726222946078.png" alt="image-20210726222946078"></p>
+<p>bin下</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210726223015044.png" alt="image-20210726223015044"></p>
+<h4 id="spring-boot-maven-plugin报红">spring-boot-maven-plugin报红</h4>
+<p>换了新电脑之后要重新配置IDEA，经过一番折腾之后，springboot项目启动终于正常，但是发现pom文件中spring-boot-maven-plugin插件无法引入。<br>
+解决办法，指定版本；为什么刚开始没有注意？由于本项目系统的pom文件中的版本号都是在parent中指定，所以刚开始没有在这方便想。<br>
+原电脑不报红的原因是本地仓库在做其他系统的时候引入过该插件，所以不指定版本没有问题。</p>
+<p>一些mysql命令</p>
+<p>1.启动命令</p>
+<p>[root@xufeng Desktop]# service mysqld start<br>
+Redirecting to /bin/systemctl start mysqld.service<br>
+2.关闭命令</p>
+<p>[root@xufeng ~]# service mysqld stop<br>
+Redirecting to /bin/systemctl stop mysqld.service<br>
+3.重启命令</p>
+<p>[root@xufeng ~]# service mysqld restart<br>
+Redirecting to /bin/systemctl restart mysqld.service</p>
+<p>4.查看服务状态</p>
+<p>[root@xufeng ~]# service mysqld status</p>
+<h4 id="查看所有后台进程">查看所有后台进程</h4>
+<p>ps aux | grep app.js</p>
+<p>kill + 进程号 		关闭某进程</p>
+<h4 id="从-tmp-community查看日志">从/tmp/community查看日志</h4>
+<h4 id="vim-退出命令-保存、放弃保存">vim 退出命令(保存、放弃保存)</h4>
+<p>按ESC键 跳到命令模式，然后输入：</p>
+<p>:w            - 保存文件，不退出 vim<br>
+:w file  -将修改另外保存到 file 中，不退出 vim<br>
+:w!          -强制保存，不退出 vim<br>
+:wq          -保存文件，退出 vim<br>
+:wq!        -强制保存文件，退出 vim<br>
+:q            -不保存文件，退出 vim<br>
+:q!          -不保存文件，强制退出 vim<br>
+:e!          -放弃所有修改，从上次保存文件开始再编辑</p>
+<h3 id="项目总结">项目总结</h3>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210728091025583.png" alt="image-20210728091025583"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210728091715328.png" alt="image-20210728091715328"></p>
+<p>常见面试题</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210728092342167.png" alt="image-20210728092342167"></p>
+<p>NDB支持集群</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210728092435368.png" alt="image-20210728092435368"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210728093136266.png" alt="image-20210728093136266"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210728093351999.png" alt="image-20210728093351999"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210728093622050.png" alt="image-20210728093622050"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210728094048134.png" alt="image-20210728094048134"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210728095403368.png" alt="image-20210728095403368"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210728095604926.png" alt="image-20210728095604926"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210728095810221.png" alt="image-20210728095810221"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210728100103386.png" alt="image-20210728100103386"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210728100249236.png" alt="image-20210728100249236"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210728100531411.png" alt="image-20210728100531411"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210728100710485.png" alt="image-20210728100710485"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210728100912355.png" alt="image-20210728100912355"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210728101406072.png" alt="image-20210728101406072"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210728101541876.png" alt="image-20210728101541876"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210728101857781.png" alt="image-20210728101857781"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210728102643569.png" alt="image-20210728102643569"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210728102923105.png" alt="image-20210728102923105"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210728103042144.png" alt="image-20210728103042144"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210728103420602.png" alt="image-20210728103420602"></p>
+<h3 id="blog">blog</h3>
+<h4 id="建项">建项</h4>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210728180900515.png" alt="image-20210728180900515"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210728180851466.png" alt="image-20210728180851466"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210728180946290.png" alt="image-20210728180946290"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210728181040963.png" alt="image-20210728181040963"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210729172941538.png" alt="image-20210729172941538"></p>
+<p>用代码生成器生成代码，运行此段代码，输入m_user,m_blog</p>
+<pre class="language-none"><code class="language-none">package com.markerhub;
+
+import com.baomidou.mybatisplus.core.exceptions.MybatisPlusException;
+import com.baomidou.mybatisplus.core.toolkit.StringPool;
+import com.baomidou.mybatisplus.core.toolkit.StringUtils;
+import com.baomidou.mybatisplus.generator.AutoGenerator;
+import com.baomidou.mybatisplus.generator.InjectionConfig;
+import com.baomidou.mybatisplus.generator.config.*;
+import com.baomidou.mybatisplus.generator.config.po.TableInfo;
+import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
+import com.baomidou.mybatisplus.generator.engine.FreemarkerTemplateEngine;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+// 演示例子，执行 main 方法控制台输入模块表名回车自动生成对应项目目录中
+public class CodeGenerator {
+
+    /**
+     * &lt;p&gt;
+     * 读取控制台内容
+     * &lt;/p&gt;
+     */
+    public static String scanner(String tip) {
+        Scanner scanner = new Scanner(System.in);
+        StringBuilder help = new StringBuilder();
+        help.append("请输入" + tip + "：");
+        System.out.println(help.toString());
+        if (scanner.hasNext()) {
+            String ipt = scanner.next();
+            if (StringUtils.isNotEmpty(ipt)) {
+                return ipt;
+            }
+        }
+        throw new MybatisPlusException("请输入正确的" + tip + "！");
+    }
+
+    public static void main(String[] args) {
+        // 代码生成器
+        AutoGenerator mpg = new AutoGenerator();
+
+        // 全局配置
+        GlobalConfig gc = new GlobalConfig();
+        String projectPath = System.getProperty("user.dir");
+        gc.setOutputDir(projectPath + "/src/main/java");
+//        gc.setOutputDir("D:\\test");
+        gc.setAuthor("关注公众号：MarkerHub");
+        gc.setOpen(false);
+        // gc.setSwagger2(true); 实体属性 Swagger2 注解
+        gc.setServiceName("%sService");
+        mpg.setGlobalConfig(gc);
+
+        // 数据源配置
+        DataSourceConfig dsc = new DataSourceConfig();
+        dsc.setUrl("jdbc:mysql://localhost:3306/vueblog?useUnicode=true&amp;useSSL=false&amp;characterEncoding=utf8&amp;serverTimezone=UTC");
+        // dsc.setSchemaName("public");
+        dsc.setDriverName("com.mysql.cj.jdbc.Driver");
+        dsc.setUsername("root");
+        dsc.setPassword("root");
+        mpg.setDataSource(dsc);
+
+        // 包配置
+        PackageConfig pc = new PackageConfig();
+        pc.setModuleName(null);
+        pc.setParent("com.markerhub");
+        mpg.setPackageInfo(pc);
+
+        // 自定义配置
+        InjectionConfig cfg = new InjectionConfig() {
+            @Override
+            public void initMap() {
+                // to do nothing
+            }
+        };
+
+        // 如果模板引擎是 freemarker
+        String templatePath = "/templates/mapper.xml.ftl";
+        // 如果模板引擎是 velocity
+        // String templatePath = "/templates/mapper.xml.vm";
+
+        // 自定义输出配置
+        List&lt;FileOutConfig&gt; focList = new ArrayList&lt;&gt;();
+        // 自定义配置会被优先输出
+        focList.add(new FileOutConfig(templatePath) {
+            @Override
+            public String outputFile(TableInfo tableInfo) {
+                // 自定义输出文件名 ， 如果你 Entity 设置了前后缀、此处注意 xml 的名称会跟着发生变化！！
+                return projectPath + "/src/main/resources/mapper/"
+                        + "/" + tableInfo.getEntityName() + "Mapper" + StringPool.DOT_XML;
+            }
+        });
+
+        cfg.setFileOutConfigList(focList);
+        mpg.setCfg(cfg);
+
+        // 配置模板
+        TemplateConfig templateConfig = new TemplateConfig();
+
+        templateConfig.setXml(null);
+        mpg.setTemplate(templateConfig);
+
+        // 策略配置
+        StrategyConfig strategy = new StrategyConfig();
+        strategy.setNaming(NamingStrategy.underline_to_camel);
+        strategy.setColumnNaming(NamingStrategy.underline_to_camel);
+        strategy.setEntityLombokModel(true);
+        strategy.setRestControllerStyle(true);
+        strategy.setInclude(scanner("表名，多个英文逗号分割").split(","));
+        strategy.setControllerMappingHyphenStyle(true);
+        strategy.setTablePrefix("m_");
+        mpg.setStrategy(strategy);
+        mpg.setTemplateEngine(new FreemarkerTemplateEngine());
+        mpg.execute();
+    }
+}</code></pre>
+<h4 id="统一封装结果Result-java">统一封装结果Result.java</h4>
+<pre class="language-none"><code class="language-none">package com.markerhub.common.lang;
+
+import lombok.Data;
+
+import java.io.Serializable;
+
+@Data
+public class Result implements Serializable {
+
+    private int code; // 200是正常，非200表示异常
+    private String msg;
+    private Object data;
+
+    public static Result succ(Object data) {
+        return succ(200, "操作成功", data);
+    }
+
+    public static Result succ(int code, String msg, Object data) {
+        Result r = new Result();
+        r.setCode(code);
+        r.setMsg(msg);
+        r.setData(data);
+        return r;
+    }
+
+    public static Result fail(String msg) {
+        return fail(400, msg, null);
+    }
+
+    public static Result fail(String msg, Object data) {
+        return fail(400, msg, data);
+    }
+
+    public static Result fail(int code, String msg, Object data) {
+        Result r = new Result();
+        r.setCode(code);
+        r.setMsg(msg);
+        r.setData(data);
+        return r;
+    }
+
+}</code></pre>
+<h4 id="shiro-jwt">shiro+jwt</h4>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210729195719552.png" alt="image-20210729195719552"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210729195620334.png" alt="image-20210729195620334"></p>
+<p>校验—异常处理或登录<img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210729215037245.png" alt="image-20210729215037245"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210729205120019.png" alt="image-20210729205120019"></p>
+<p>同理于</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210729215136845.png" alt="image-20210729215136845"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210729205459044.png" alt="image-20210729205459044"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210729215739650.png" alt="image-20210729215739650"></p>
+<h3 id="一些error">一些error</h3>
+<h4 id="java-程序包javax-servlet不存在">java: 程序包javax.servlet不存在</h4>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210730091725778.png" alt="image-20210730091725778"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210730091810749.png" alt="image-20210730091810749"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20211012011425690.png" alt="image-20211012011425690"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20211012011555069.png" alt="image-20211012011555069"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20211012011627010.png" alt="image-20211012011627010"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20211012011647200.png" alt="image-20211012011647200"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20211012011707923.png" alt="image-20211012011707923"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20211012011753158.png" alt="image-20211012011753158"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20211012011905256.png" alt="image-20211012011905256"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20211012011935387.png" alt="image-20211012011935387"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20211012012101465.png" alt="image-20211012012101465"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20211012012118384.png" alt="image-20211012012118384"></p>
+<h3 id="一些：">一些：</h3>
+<h4 id="给idea设置代理，提高下载包的速度">给idea设置代理，提高下载包的速度</h4>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210728182432528.png" alt="image-20210728182432528"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210728182512086.png" alt="image-20210728182512086"></p>
+<h4 id="跳过测试用例的方法">跳过测试用例的方法</h4>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210728201904294.png" alt="image-20210728201904294"></p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210728201959702.png" alt="image-20210728201959702"></p>
+<p>导入sql脚本的方法</p>
+<p>可以在命令行中导入（上方mysql介绍中已有），也可以进入navicat的导入方式</p>
+<p><img src="https://gitee.com/BeiHai-yu/md-image/raw/master/images/image-20210730092643954.png" alt="image-20210730092643954"></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:xiaoxinvvzzz@sina.com">Xiaoxin</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://beihai-yu.github.io/2021/10/14/spring/">http://beihai-yu.github.io/2021/10/14/spring/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://BeiHai-yu.github.io" target="_blank">Xiaoxin's blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Spring/">Spring</a><a class="post-meta__tags" href="/tags/tomcat/">tomcat</a></div><div class="post_share"><div class="addthis_inline_share_toolbox"></div><script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-61076b7f05407964" async="async"></script></div></div><div class="post-reward"><div class="reward-button button--animated"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="https://blog--image.oss-cn-shanghai.aliyuncs.com/images/20210803214143.jpg" target="_blank"><img class="post-qr-code-img" src="https://blog--image.oss-cn-shanghai.aliyuncs.com/images/20210803214143.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://blog--image.oss-cn-shanghai.aliyuncs.com/images/20210803214144.jpg" target="_blank"><img class="post-qr-code-img" src="https://blog--image.oss-cn-shanghai.aliyuncs.com/images/20210803214144.jpg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2021/10/27/github-fen-zhi-he-bing-wen-ti/"><img class="prev-cover" src="https://blog--image.oss-cn-shanghai.aliyuncs.com/images1/202110272031511.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">github分支合并问题</div></div></a></div><div class="next-post pull-right"><a href="/2021/09/28/java-ji-chu-8-duo-xian-cheng/"><img class="next-cover" src="https://blog--image.oss-cn-shanghai.aliyuncs.com/images/20210803214148.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Java基础(3)---多线程</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">Spring项目学习(牛课网社区)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#maven"><span class="toc-number">1.1.</span> <span class="toc-text">maven</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#spring-initializr"><span class="toc-number">1.2.</span> <span class="toc-text">spring initializr</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Spring"><span class="toc-number">1.3.</span> <span class="toc-text">Spring</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Mybatis"><span class="toc-number">1.4.</span> <span class="toc-text">Mybatis</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#mysql"><span class="toc-number">1.4.1.</span> <span class="toc-text">mysql</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%87%AA%E5%B7%B1%E5%BB%BA%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%8C%E8%A1%A8%EF%BC%8C%E4%BB%A5%E5%8F%8A%E5%90%91%E8%A1%A8%E4%B8%AD%E6%8F%92%E5%A6%82%E6%95%B0%E6%8D%AE"><span class="toc-number">1.4.1.1.</span> <span class="toc-text">自己建数据库，表，以及向表中插如数据</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mysql-connecter"><span class="toc-number">1.4.2.</span> <span class="toc-text">mysql connecter</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Mybatis-Spring-Boot-Starter"><span class="toc-number">1.4.3.</span> <span class="toc-text">Mybatis Spring Boot Starter</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A4%BE%E5%8C%BA%E9%A6%96%E9%A1%B5"><span class="toc-number">1.5.</span> <span class="toc-text">社区首页</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A1%B9%E7%9B%AE%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A7%E4%B9%8B%E6%9C%8D%E5%8A%A1%E7%AB%AF%E6%96%AD%E7%82%B9%E8%B0%83%E8%AF%95"><span class="toc-number">1.5.1.</span> <span class="toc-text">项目调试技巧之服务端断点调试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A1%B9%E7%9B%AE%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A7%E4%B9%8B%E5%AE%A2%E6%88%B7%E6%96%AD%E7%82%B9%E8%B0%83%E8%AF%95"><span class="toc-number">1.5.2.</span> <span class="toc-text">项目调试技巧之客户断点调试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A1%B9%E7%9B%AE%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A7%E4%B9%8B%E6%97%A5%E5%BF%97"><span class="toc-number">1.5.3.</span> <span class="toc-text">项目调试技巧之日志</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git"><span class="toc-number">1.6.</span> <span class="toc-text">git</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E6%8F%90%E4%BA%A4%E4%BB%A3%E7%A0%81"><span class="toc-number">1.6.1.</span> <span class="toc-text">如何提交代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Idea%E4%B8%AD%E5%A6%82%E4%BD%95%E6%8F%90%E4%BA%A4"><span class="toc-number">1.6.2.</span> <span class="toc-text">Idea中如何提交</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%99%BB%E5%BD%95%E6%A8%A1%E5%9D%97"><span class="toc-number">1.7.</span> <span class="toc-text">登录模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%80%E5%8F%91%E6%B3%A8%E5%86%8C%E6%A8%A1%E5%9D%97"><span class="toc-number">1.8.</span> <span class="toc-text">开发注册模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%99%BB%E5%BD%95%E6%A8%A1%E5%9D%97-2"><span class="toc-number">1.9.</span> <span class="toc-text">登录模块</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#cookie"><span class="toc-number">1.9.1.</span> <span class="toc-text">cookie</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#session"><span class="toc-number">1.9.2.</span> <span class="toc-text">session</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%AA%8C%E8%AF%81%E7%A0%81"><span class="toc-number">1.10.</span> <span class="toc-text">验证码</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">111</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%98%BE%E7%A4%BA%E7%99%BB%E5%BD%95%E4%BF%A1%E6%81%AF"><span class="toc-number">2.1.</span> <span class="toc-text">显示登录信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E5%A4%B4%E5%83%8F"><span class="toc-number">2.2.</span> <span class="toc-text">设置头像</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A3%80%E6%9F%A5%E7%99%BB%E5%BD%95%E7%8A%B6%E6%80%81"><span class="toc-number">2.3.</span> <span class="toc-text">检查登录状态</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">开发社区核心功能</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%91%E5%B8%83%E5%B8%96%E5%AD%90"><span class="toc-number">3.1.</span> <span class="toc-text">发布帖子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%98%BE%E7%A4%BA%E5%B8%96%E5%AD%90%E8%AF%A6%E6%83%85"><span class="toc-number">3.2.</span> <span class="toc-text">显示帖子详情</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8B%E5%8A%A1%E7%AE%A1%E7%90%86"><span class="toc-number">3.3.</span> <span class="toc-text">事务管理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E8%AF%84%E8%AE%BA"><span class="toc-number">3.4.</span> <span class="toc-text">添加评论</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A7%81%E4%BF%A1%E5%88%97%E8%A1%A8"><span class="toc-number">3.5.</span> <span class="toc-text">私信列表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#image-20210712091657723"><span class="toc-number">3.6.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A7%81%E4%BF%A1%E8%AF%A6%E6%83%85"><span class="toc-number">3.7.</span> <span class="toc-text">私信详情</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%9F%E4%B8%80%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86"><span class="toc-number">3.8.</span> <span class="toc-text">统一异常处理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%9F%E4%B8%80%E8%AE%B0%E5%BD%95%E6%97%A5%E5%BF%97%EF%BC%88%E4%B8%BB%E8%A6%81%E8%AE%B0%E5%BD%95service%E7%BB%84%E4%BB%B6%E5%89%8D%E7%9A%84%E8%A1%8C%E4%B8%BA%EF%BC%89"><span class="toc-number">3.9.</span> <span class="toc-text">统一记录日志（主要记录service组件前的行为）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Redis"><span class="toc-number">3.10.</span> <span class="toc-text">Redis</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%82%B9%E8%B5%9E%E5%8A%9F%E8%83%BD"><span class="toc-number">3.11.</span> <span class="toc-text">点赞功能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%88%91%E6%94%B6%E5%88%B0%E7%9A%84%E8%B5%9E"><span class="toc-number">3.12.</span> <span class="toc-text">我收到的赞</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#likeService%E5%A4%84%E6%B2%A1%E6%9C%89%E8%BE%BE%E5%88%B0%E8%A7%86%E9%A2%91%E6%95%88%E6%9E%9C%E8%87%AA%E5%B7%B1%E6%94%B9%E7%9A%84%E4%BB%A3%E7%A0%81%EF%BC%88redis%E7%9A%84%E5%BA%8F%E5%88%97%E5%8C%96%E9%85%8D%E7%BD%AE%E9%94%99%E8%AF%AF%E5%AF%BC%E8%87%B4-%E5%B7%B2%E8%A7%A3%E5%86%B3%EF%BC%89"><span class="toc-number">3.13.</span> <span class="toc-text">likeService处没有达到视频效果自己改的代码（redis的序列化配置错误导致-已解决）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E6%B3%A8%E4%B8%8E%E5%8F%96%E6%B6%88%E5%85%B3%E6%B3%A8"><span class="toc-number">3.14.</span> <span class="toc-text">关注与取消关注</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E6%B3%A8%E5%88%97%E8%A1%A8%E5%92%8C%E7%B2%89%E4%B8%9D%E5%88%97%E8%A1%A8"><span class="toc-number">3.15.</span> <span class="toc-text">关注列表和粉丝列表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BC%98%E5%8C%96%E7%99%BB%E5%BD%95"><span class="toc-number">3.16.</span> <span class="toc-text">优化登录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B7%A8%E5%9D%91%E5%8F%91%E7%8E%B0%EF%BC%9A%E8%87%AA%E5%B7%B1%E8%B7%9F%E7%9D%80%E8%AE%BE%E8%AE%A1%E7%9A%84redis%E9%85%8D%E7%BD%AE%E5%B1%85%E7%84%B6%E5%85%A8%E9%83%A8%E6%98%AFstring%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%BA%8F%E5%88%97%E5%8C%96%EF%BC%88%E5%B7%B2%E6%94%B9%E4%B8%BAjson%EF%BC%89"><span class="toc-number">3.17.</span> <span class="toc-text">巨坑发现：自己跟着设计的redis配置居然全部是string类型的序列化（已改为json）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Kafka"><span class="toc-number">3.18.</span> <span class="toc-text">Kafka</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E9%85%8D%E7%BD%AE"><span class="toc-number">3.18.1.</span> <span class="toc-text">1.配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%90%AF%E5%8A%A81"><span class="toc-number">3.18.2.</span> <span class="toc-text">2.启动1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%90%AF%E5%8A%A82"><span class="toc-number">3.18.3.</span> <span class="toc-text">2.启动2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%BB%BA%E7%AB%8B%E4%BC%9A%E8%AF%9D-%E7%94%9F%E4%BA%A7%E8%80%85"><span class="toc-number">3.18.4.</span> <span class="toc-text">3.建立会话-生产者</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%BB%BA%E7%AB%8B%E4%BC%9A%E8%AF%9D-%E6%B6%88%E8%B4%B9%E8%80%85"><span class="toc-number">3.18.5.</span> <span class="toc-text">3.建立会话-消费者</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-spring%E6%95%B4%E5%90%88kafka"><span class="toc-number">3.18.6.</span> <span class="toc-text">4.spring整合kafka</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%91%E9%80%81%E7%B3%BB%E7%BB%9F%E9%80%9A%E7%9F%A5"><span class="toc-number">3.19.</span> <span class="toc-text">发送系统通知</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3kafka%E5%90%AF%E5%8A%A8%E4%B8%AD%E5%87%BA%E7%8E%B0%E9%94%81%E6%AD%BB%E7%9A%84%E7%8E%B0%E8%B1%A1"><span class="toc-number">3.20.</span> <span class="toc-text">解决kafka启动中出现锁死的现象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%98%BE%E7%A4%BA%E7%B3%BB%E7%BB%9F%E9%80%9A%E7%9F%A5"><span class="toc-number">3.21.</span> <span class="toc-text">显示系统通知</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Elasticsearch"><span class="toc-number">3.22.</span> <span class="toc-text">Elasticsearch</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD"><span class="toc-number">3.22.1.</span> <span class="toc-text">下载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE"><span class="toc-number">3.22.2.</span> <span class="toc-text">配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E7%8A%B6%E6%80%81"><span class="toc-number">3.22.3.</span> <span class="toc-text">查看状态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Spring%E4%B8%AD%E6%B3%A8%E5%85%A5elasticsearch"><span class="toc-number">3.22.4.</span> <span class="toc-text">Spring中注入elasticsearch</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SpringSecurity"><span class="toc-number">3.23.</span> <span class="toc-text">SpringSecurity</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%AE%E9%A1%B6%EF%BC%8C%E5%8A%A0%E7%B2%BE%EF%BC%8C%E5%88%A0%E9%99%A4"><span class="toc-number">3.24.</span> <span class="toc-text">置顶，加精，删除</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#redis%E9%AB%98%E7%BA%A7%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%EF%BC%88%E7%BD%91%E7%AB%99%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1%EF%BC%89"><span class="toc-number">3.25.</span> <span class="toc-text">redis高级数据类型（网站数据统计）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%BB%E5%8A%A1%E6%89%A7%E8%A1%8C%E5%92%8C%E8%B0%83%E5%BA%A6"><span class="toc-number">3.26.</span> <span class="toc-text">任务执行和调度</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%83%AD%E5%B8%96%E6%8E%92%E8%A1%8C"><span class="toc-number">3.27.</span> <span class="toc-text">热帖排行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E9%95%BF%E5%9B%BE"><span class="toc-number">3.28.</span> <span class="toc-text">生成长图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BC%98%E5%8C%96%E7%BD%91%E7%AB%99%E6%80%A7%E8%83%BD"><span class="toc-number">3.29.</span> <span class="toc-text">优化网站性能</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7jmeter"><span class="toc-number">3.29.1.</span> <span class="toc-text">性能测试工具jmeter</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95"><span class="toc-number">3.30.</span> <span class="toc-text">单元测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A1%B9%E7%9B%AE%E7%9B%91%E6%8E%A7"><span class="toc-number">3.31.</span> <span class="toc-text">项目监控</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2"><span class="toc-number">3.32.</span> <span class="toc-text">项目部署</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85putty"><span class="toc-number">3.32.1.</span> <span class="toc-text">安装putty</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BDmysql%E7%9A%84yum%E4%BB%93%E5%BA%93"><span class="toc-number">3.32.2.</span> <span class="toc-text">下载mysql的yum仓库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BDmaven"><span class="toc-number">3.32.3.</span> <span class="toc-text">下载maven</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BDkafka"><span class="toc-number">3.32.4.</span> <span class="toc-text">下载kafka</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BDtomcat"><span class="toc-number">3.32.5.</span> <span class="toc-text">下载tomcat</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BDes"><span class="toc-number">3.32.6.</span> <span class="toc-text">下载es</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8A%E4%BC%A0%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6%E5%88%B0%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-number">3.32.7.</span> <span class="toc-text">上传本地文件到服务器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BDjre"><span class="toc-number">3.32.8.</span> <span class="toc-text">下载jre</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E5%8E%8Bmaven%E5%88%B0opt"><span class="toc-number">3.32.9.</span> <span class="toc-text">解压maven到opt</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E5%8E%8Bmysql"><span class="toc-number">3.32.10.</span> <span class="toc-text">解压mysql</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%86%E8%A1%A8%E5%AF%BC%E5%85%A5%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-number">3.32.11.</span> <span class="toc-text">将表导入数据库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85redis"><span class="toc-number">3.32.12.</span> <span class="toc-text">安装redis</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E5%8E%8B%E5%AE%89%E8%A3%85kafka"><span class="toc-number">3.32.13.</span> <span class="toc-text">解压安装kafka</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85es"><span class="toc-number">3.32.14.</span> <span class="toc-text">安装es</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85wkhtmltopdf"><span class="toc-number">3.32.15.</span> <span class="toc-text">安装wkhtmltopdf</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E5%8E%8B%E5%AE%89%E8%A3%85tomcat"><span class="toc-number">3.32.16.</span> <span class="toc-text">解压安装tomcat</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E5%8E%8B%E5%AE%89%E8%A3%85nginx"><span class="toc-number">3.32.17.</span> <span class="toc-text">解压安装nginx</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A1%B9%E7%9B%AE%E4%BF%AE%E6%94%B9%E6%89%93%E5%8C%85"><span class="toc-number">3.32.18.</span> <span class="toc-text">项目修改打包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%93%E5%8C%85%E5%88%B0%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-number">3.32.19.</span> <span class="toc-text">打包到服务器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9Berror%E5%92%8Cwaining"><span class="toc-number">3.32.20.</span> <span class="toc-text">遇到的一些error和waining</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Job-for-mysqld-service-failed-because-the-control-process-exited-with-error"><span class="toc-number">3.32.20.1.</span> <span class="toc-text">Job for mysqld.service failed because the control process exited with error</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#gzip-stdin-not-in-gzip-format-tar-Child-returned-status-1-tar-Error-is-not-recoverable-exiting-now"><span class="toc-number">3.32.20.2.</span> <span class="toc-text">gzip: stdin: not in gzip format tar: Child returned status 1 tar: Error is not recoverable: exiting now</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#warning%EF%BC%9AThe-web-application-created-a-ThreadLocal-with-key"><span class="toc-number">3.32.20.3.</span> <span class="toc-text">warning：The web application created a ThreadLocal with key</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2%E7%9B%B8%E5%85%B3"><span class="toc-number">3.32.21.</span> <span class="toc-text">服务器部署相关</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%80%E4%BA%9B%E5%91%BD%E4%BB%A4%EF%BC%9A"><span class="toc-number">3.32.21.1.</span> <span class="toc-text">一些命令：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%9A%E8%BF%87xshell%E6%94%B9%E5%8F%98root%E7%94%A8%E6%88%B7%E7%9A%84%E5%AF%86%E7%A0%81"><span class="toc-number">3.32.21.2.</span> <span class="toc-text">通过xshell改变root用户的密码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8BMysql%E7%9A%84%E6%97%A5%E5%BF%97"><span class="toc-number">3.32.21.3.</span> <span class="toc-text">查看Mysql的日志</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%8C%E5%85%A8%E5%8D%B8%E8%BD%BDmysql"><span class="toc-number">3.32.21.4.</span> <span class="toc-text">完全卸载mysql</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8D%B8%E8%BD%BDnginx%E7%9A%84%E6%96%B9%E5%BC%8F"><span class="toc-number">3.32.21.5.</span> <span class="toc-text">卸载nginx的方式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#rm-rf-%E6%96%87%E4%BB%B6%E5%90%8D"><span class="toc-number">3.32.21.6.</span> <span class="toc-text">rm -rf + 文件名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%97%A0%E6%B3%95%E9%80%9A%E8%BF%878080%E8%AE%BF%E9%97%AEtomcat"><span class="toc-number">3.32.21.7.</span> <span class="toc-text">无法通过8080访问tomcat</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%87%8D%E5%90%AFtomcat"><span class="toc-number">3.32.21.8.</span> <span class="toc-text">重启tomcat</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#spring-boot-maven-plugin%E6%8A%A5%E7%BA%A2"><span class="toc-number">3.32.21.9.</span> <span class="toc-text">spring-boot-maven-plugin报红</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E6%89%80%E6%9C%89%E5%90%8E%E5%8F%B0%E8%BF%9B%E7%A8%8B"><span class="toc-number">3.32.21.10.</span> <span class="toc-text">查看所有后台进程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%8E-tmp-community%E6%9F%A5%E7%9C%8B%E6%97%A5%E5%BF%97"><span class="toc-number">3.32.21.11.</span> <span class="toc-text">从&#x2F;tmp&#x2F;community查看日志</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#vim-%E9%80%80%E5%87%BA%E5%91%BD%E4%BB%A4-%E4%BF%9D%E5%AD%98%E3%80%81%E6%94%BE%E5%BC%83%E4%BF%9D%E5%AD%98"><span class="toc-number">3.32.21.12.</span> <span class="toc-text">vim 退出命令(保存、放弃保存)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93"><span class="toc-number">3.32.22.</span> <span class="toc-text">项目总结</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#blog"><span class="toc-number">3.32.23.</span> <span class="toc-text">blog</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BB%BA%E9%A1%B9"><span class="toc-number">3.32.23.1.</span> <span class="toc-text">建项</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%9F%E4%B8%80%E5%B0%81%E8%A3%85%E7%BB%93%E6%9E%9CResult-java"><span class="toc-number">3.32.23.2.</span> <span class="toc-text">统一封装结果Result.java</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#shiro-jwt"><span class="toc-number">3.32.23.3.</span> <span class="toc-text">shiro+jwt</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E4%BA%9Berror"><span class="toc-number">3.32.24.</span> <span class="toc-text">一些error</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#java-%E7%A8%8B%E5%BA%8F%E5%8C%85javax-servlet%E4%B8%8D%E5%AD%98%E5%9C%A8"><span class="toc-number">3.32.24.1.</span> <span class="toc-text">java: 程序包javax.servlet不存在</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E4%BA%9B%EF%BC%9A"><span class="toc-number">3.32.25.</span> <span class="toc-text">一些：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%99idea%E8%AE%BE%E7%BD%AE%E4%BB%A3%E7%90%86%EF%BC%8C%E6%8F%90%E9%AB%98%E4%B8%8B%E8%BD%BD%E5%8C%85%E7%9A%84%E9%80%9F%E5%BA%A6"><span class="toc-number">3.32.25.1.</span> <span class="toc-text">给idea设置代理，提高下载包的速度</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%B7%B3%E8%BF%87%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-number">3.32.25.2.</span> <span class="toc-text">跳过测试用例的方法</span></a></li></ol></li></ol></li></ol></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2021 - 2022  <i id="heartbeat" class="fa fas fa-heartbeat"></i> Xiaoxin</div><div class="footer_custom_text">Hi, welcome to my <a href="http://BeiHai-yu.github.io/">blog✨</a>!</div></div><head><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/HCLonely/images@master/others/heartbeat.min.css"></head></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="font-plus" type="button" title="放大字体"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="缩小字体"><i class="fas fa-minus"></i></button><button id="translateLink" type="button" title="简繁转换">简</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="algolia-search"><div class="search-dialog"><div class="search-dialog__title" id="algolia-search-title">Algolia</div><div id="algolia-input-panel"><div id="algolia-search-input"></div></div><hr/><div id="algolia-search-results"><div id="algolia-hits"></div><div id="algolia-pagination"></div><div id="algolia-stats"></div></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><script src="/js/search/algolia.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>if (document.getElementsByClassName('mermaid').length) {
+  if (window.mermaidJsLoad) mermaid.init()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js').then(() => {
+      window.mermaidJsLoad = true
+      mermaid.initialize({
+        theme: 'default',
+      })
+      true && mermaid.init()
+    })
+  }
+}</script><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: 'pBezCOoDSixLwTE971KPKXhm-gzGzoHsz',
+      appKey: 'uUFkD2xwQHOxvjracpJP4coE',
+      placeholder: '记得留下你的暱称和邮箱....可以快速收到回復',
+      avatar: 'monsterid',
+      meta: 'nick,mail,link'.split(','),
+      pageSize: '10',
+      lang: 'en',
+      recordIP: false,
+      serverURLs: '',
+      emojiCDN: '//i0.hdslb.com/bfs/emote/',
+      emojiMaps: {"tv_doge":"6ea59c827c414b4a2955fe79e0f6fd3dcd515e24.png","tv_亲亲":"a8111ad55953ef5e3be3327ef94eb4a39d535d06.png","tv_偷笑":"bb690d4107620f1c15cff29509db529a73aee261.png","tv_再见":"180129b8ea851044ce71caf55cc8ce44bd4a4fc8.png","tv_冷漠":"b9cbc755c2b3ee43be07ca13de84e5b699a3f101.png","tv_发怒":"34ba3cd204d5b05fec70ce08fa9fa0dd612409ff.png","tv_发财":"34db290afd2963723c6eb3c4560667db7253a21a.png","tv_可爱":"9e55fd9b500ac4b96613539f1ce2f9499e314ed9.png","tv_吐血":"09dd16a7aa59b77baa1155d47484409624470c77.png","tv_呆":"fe1179ebaa191569b0d31cecafe7a2cd1c951c9d.png","tv_呕吐":"9f996894a39e282ccf5e66856af49483f81870f3.png","tv_困":"241ee304e44c0af029adceb294399391e4737ef2.png","tv_坏笑":"1f0b87f731a671079842116e0991c91c2c88645a.png","tv_大佬":"093c1e2c490161aca397afc45573c877cdead616.png","tv_大哭":"23269aeb35f99daee28dda129676f6e9ea87934f.png","tv_委屈":"d04dba7b5465779e9755d2ab6f0a897b9b33bb77.png","tv_害羞":"a37683fb5642fa3ddfc7f4e5525fd13e42a2bdb1.png","tv_尴尬":"7cfa62dafc59798a3d3fb262d421eeeff166cfa4.png","tv_微笑":"70dc5c7b56f93eb61bddba11e28fb1d18fddcd4c.png","tv_思考":"90cf159733e558137ed20aa04d09964436f618a1.png","tv_惊吓":"0d15c7e2ee58e935adc6a7193ee042388adc22af.png"},
+      enableQQ: false,
+      path: window.location.pathname,
+      requiredFields: ["nick,mail"],
+      visitor: false
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !false) {
+  if (false) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.17.0/js/md5.min.js"></script><script>window.addEventListener('load', () => {
+  const changeContent = (content) => {
+    if (content === '') return content
+
+    content = content.replace(/<img.*?src="(.*?)"?[^\>]+>/ig, '[图片]') // replace image link
+    content = content.replace(/<a[^>]+?href=["']?([^"']+)["']?[^>]*>([^<]+)<\/a>/gi, '[链接]') // replace url
+    content = content.replace(/<pre><code>.*?<\/pre>/gi, '[代码]') // replace code
+    content = content.replace(/<[^>]+>/g,"") // remove html tag
+
+    if (content.length > 150) {
+      content = content.substring(0,150) + '...'
+    }
+    return content
+  }
+
+  const getIcon = (icon, mail) => {
+    if (icon) return icon
+    let defaultIcon = '?d=monsterid'
+    let iconUrl = `https://gravatar.loli.net/avatar/${md5(mail.toLowerCase()) + defaultIcon}`
+    return iconUrl
+  }
+
+  const generateHtml = array => {
+    let result = ''
+
+    if (array.length) {
+      for (let i = 0; i < array.length; i++) {
+        result += '<div class=\'aside-list-item\'>'
+
+        if (true) {
+          const name = 'src'
+          result += `<a href='${array[i].url}' class='thumbnail'><img ${name}='${array[i].avatar}' alt='${array[i].nick}'></a>`
+        }
+
+        result += `<div class='content'>
+        <a class='comment' href='${array[i].url}'>${array[i].content}</a>
+        <div class='name'><span>${array[i].nick} / </span><time datetime="${array[i].date}">${btf.diffDate(array[i].date, true)}</time></div>
+        </div></div>`
+      }
+    } else {
+      result += '没有评论'
+    }
+
+    let $dom = document.querySelector('#card-newest-comments .aside-list')
+    $dom.innerHTML= result
+    window.lazyLoadInstance && window.lazyLoadInstance.update()
+    window.pjax && window.pjax.refresh($dom)
+  }
+
+  const getComment = () => {
+    const serverURL = 'https://pBezCOoD.api.lncldglobal.com'
+
+    var settings = {
+      "method": "GET",
+      "headers": {
+        "X-LC-Id": 'pBezCOoDSixLwTE971KPKXhm-gzGzoHsz',
+        "X-LC-Key": 'uUFkD2xwQHOxvjracpJP4coE',
+        "Content-Type": "application/json"
+      },
+    }
+
+    fetch(`${serverURL}/1.1/classes/Comment?limit=6&order=-createdAt`,settings)
+      .then(response => response.json())
+      .then(data => {
+        const valineArray = data.results.map(function (e) {
+          return {
+            'avatar': getIcon(e.QQAvatar, e.mail),
+            'content': changeContent(e.comment),
+            'nick': e.nick,
+            'url': e.url + '#' + e.objectId,
+            'date': e.updatedAt,
+          }
+        })
+        saveToLocal.set('valine-newest-comments', JSON.stringify(valineArray), 10/(60*24))
+        generateHtml(valineArray)
+      }).catch(e => {
+        const $dom = document.querySelector('#card-newest-comments .aside-list')
+        $dom.innerHTML= "无法获取评论，请确认相关配置是否正确"
+      }) 
+  }
+
+  const newestCommentInit = () => {
+    if (document.querySelector('#card-newest-comments .aside-list')) {
+      const data = saveToLocal.get('valine-newest-comments')
+      if (data) {
+        generateHtml(JSON.parse(data))
+      } else {
+        getComment()
+      }
+    }
+  }
+
+  newestCommentInit()
+  document.addEventListener('pjax:complete', newestCommentInit)
+})</script><div class="aplayer no-destroy" data-id="6892729972" data-server="netease" data-type="playlist" data-fixed="true" data-mini="true" data-listFolded="false" data-order="random" data-preload="none" data-autoplay="true" muted></div><div class="app-refresh" id="app-refresh"> <div class="app-refresh-wrap"> <label>✨ 网站已更新最新版本 👉</label> <a href="javascript:void(0)" onclick="location.reload()">点击刷新</a> </div></div><script>function showNotification(){if(GLOBAL_CONFIG.Snackbar){var t="light"===document.documentElement.getAttribute("data-theme")?GLOBAL_CONFIG.Snackbar.bgLight:GLOBAL_CONFIG.Snackbar.bgDark,e=GLOBAL_CONFIG.Snackbar.position;Snackbar.show({text:"已更新最新版本",backgroundColor:t,duration:5e5,pos:e,actionText:"点击刷新",actionTextColor:"#fff",onActionClick:function(t){location.reload()}})}else{var o=`top: 0; background: ${"light"===document.documentElement.getAttribute("data-theme")?"#49b1f5":"#1f1f1f"};`;document.getElementById("app-refresh").style.cssText=o}}"serviceWorker"in navigator&&(navigator.serviceWorker.controller&&navigator.serviceWorker.addEventListener("controllerchange",function(){showNotification()}),window.addEventListener("load",function(){navigator.serviceWorker.register("/sw.js")}));</script><script src="/js/bubblex.js"></script><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/fireworks.min.js"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="140" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-nest.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script>(function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/57ef2727.js","daovoice")
+</script><script>var isChatBtn = false
+daovoice('init', {
+  app_id: '57ef2727',},{
+  launcher: { 
+     disableLauncherIcon: isChatBtn // 悬浮 ICON 是否显示
+  },
+});
+daovoice('update');
+
+if (isChatBtn) {
+  var chatBtnFn = () => {
+    var chatBtn = document.getElementById("chat_btn")
+    chatBtn.addEventListener("click", function(){
+      daovoice('show')
+    });
+  }
+  chatBtnFn()
+} else {
+  if (false) {
+    function chatBtnHide () {
+      daovoice('update', {},{
+        launcher: { 
+        disableLauncherIcon: true // 悬浮 ICON 是否显示
+        },
+      });
+    }
+    function chatBtnShow () {
+      daovoice('update', {},{
+        launcher: { 
+        disableLauncherIcon: false // 悬浮 ICON 是否显示
+        },
+      });
+    }
+  }
+}</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/gh/metowolf/MetingJS@1.2/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = [
+  'title',
+  '#config-diff',
+  '#body-wrap',
+  '#rightside-config-hide',
+  '#rightside-config-show',
+  '.js-pjax'
+]
+
+if (false) {
+  pjaxSelectors.unshift('meta[property="og:image"]', 'meta[property="og:title"]', 'meta[property="og:url"]')
+}
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.removeEventListener('scroll', window.tocScrollFn)
+  window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // Analytics
+  if (false) {
+    MtaH5.pgv()
+  }
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"left","width":150,"height":300,"hOffset":50,"vOffset":-50},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body></html>
