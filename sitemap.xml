@@ -256,20 +256,6 @@
 
   
   <url>
-    <loc>http://beihai-yu.github.io/tags/IDEA/</loc>
-    <lastmod>2023-06-01</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://beihai-yu.github.io/tags/Docker/</loc>
-    <lastmod>2023-06-01</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://beihai-yu.github.io/tags/Hexo/</loc>
     <lastmod>2023-06-01</lastmod>
     <changefreq>daily</changefreq>
@@ -292,6 +278,20 @@
   
   <url>
     <loc>http://beihai-yu.github.io/tags/picGo/</loc>
+    <lastmod>2023-06-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://beihai-yu.github.io/tags/IDEA/</loc>
+    <lastmod>2023-06-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://beihai-yu.github.io/tags/Docker/</loc>
     <lastmod>2023-06-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -328,14 +328,14 @@
 
   
   <url>
-    <loc>http://beihai-yu.github.io/categories/IDEA/</loc>
+    <loc>http://beihai-yu.github.io/categories/Hexo/</loc>
     <lastmod>2023-06-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://beihai-yu.github.io/categories/Hexo/</loc>
+    <loc>http://beihai-yu.github.io/categories/IDEA/</loc>
     <lastmod>2023-06-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
